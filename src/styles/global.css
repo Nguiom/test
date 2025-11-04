@@ -125,19 +125,19 @@
 }
 
 @utility btn-primary {
-  @apply btn bg-accent-600 text-black hover:text-white shadow-md hover:shadow-lg dark:bg-accent-400 ;
+  @apply btn bg-accent-600 text-info-50 hover:text-info-100 shadow-md hover:shadow-lg dark:bg-accent-400 ;
 }
 
 @utility btn-secondary {
-  @apply btn bg-primary-600 hover:bg-primary-700 text-white shadow-md hover:shadow-lg;
+  @apply btn bg-primary-600 hover:bg-primary-700 text-info-100 shadow-md hover:shadow-lg;
 }
 
 @utility btn-accent {
-  @apply btn bg-accent-300 hover:bg-accent-400 text-black shadow-md hover:shadow-lg;
+  @apply btn bg-accent-300 hover:bg-accent-400 text-info-50 shadow-md hover:shadow-lg;
 }
 
 @utility btn-outline {
-  @apply btn border-2 border-secondary-300 dark:border-accent-300 hover:bg-secondary-100 dark:hover:bg-secondary-100 text-secondary-900 dark:text-secondary-50 dark:hover:text-secondary-800;
+  @apply btn border-2 border-info-600 dark:border-info-700 hover:bg-secondary-100 dark:hover:bg-secondary-100 text-info-50 dark:text-info-100 dark:hover:text-info-950;
 }
 
 @utility container-custom {
@@ -149,7 +149,7 @@
 }
 
 @utility card {
-  @apply bg-white dark:bg-secondary-900 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden border border-secondary-200 dark:border-secondary-800;
+  @apply bg-white dark:bg-secondary-900 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden border border-info-600 dark:border-info-700;
 }
 
 @layer base {
@@ -198,5 +198,5 @@
 
 /* Focus styles for keyboard navigation */
 :focus-visible {
-  @apply outline-hidden ring-2 ring-primary-500 dark:ring-primary-400;
+  @apply outline-hidden ring-2 ring-info-600 dark:ring-info-700;
 }
