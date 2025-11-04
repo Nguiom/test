@@ -44,8 +44,8 @@
   --color-info-100: #cdd6f4;
   --color-info-200: #1e66f5;
   --color-info-300: #89b4fa;
-  --color-info-400: #40a02b;
-  --color-info-500: #a6e3a1;
+  --color-info-400: #5c5f77;
+  --color-info-500: #a6adc8;
   --color-info-600: #7287fd;
   --color-info-700: #b4befe;
   --color-info-800: #dc8a78;
@@ -125,7 +125,7 @@
 }
 
 @utility btn-primary {
-  @apply btn bg-accent-50 text-info-50 hover:text-info-900 shadow-md hover:shadow-lg dark:bg-accent-950 ;
+  @apply btn bg-accent-50 text-info-50 hover:text-info-900 shadow-md hover:shadow-lg dark:bg-accent-950 dark:text-info-100 ;
 }
 
 @utility btn-secondary {

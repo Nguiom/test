@@ -10,7 +10,7 @@ const allPages = [
   { text: "M8 - Sistema de supevisión SCADA", url: "/Los4Automaticos/404" }
 ];
 ---
-<header class="fixed w-full bg-white/90 dark:bg-secondary-950/90 backdrop-blur-xs z-50 py-4 transition-colors duration-300">
+<header class="fixed w-full bg-primary-100 dark:bg-primary-950 backdrop-blur-xs z-50 py-4 transition-colors duration-300">
   <div class="container-custom flex items-center justify-between">
     <a href="/Los4Automaticos/" class="flex items-center" aria-label="Go to homepage">
       <!-- Imagen para modo claro -->
@@ -24,10 +24,10 @@ const allPages = [
       <img
         src="https://imgur.com/jrOVLl5.jpg"
         alt="Logo Los 4 Automáticos modo oscuro"
-        class="h-10 w-auto hidden dark:block border-0 border-secondary-300 rounded-md p-[1px]"
+        class="h-10 w-auto hidden dark:block border-0 border-info-900 rounded-md p-[1px]"
       />
       
-      <span class="ml-2 text-xl font-display font-semibold text-secondary-900 dark:text-white">Los 4 Automáticos</span>
+      <span class="ml-2 text-xl font-display font-semibold text-info-50 dark:text-info-100">Los 4 Automáticos</span>
     </a>
     
     <nav class="hidden lg:flex items-center space-x-8">
@@ -35,15 +35,15 @@ const allPages = [
       <a href="/Mep_Mep_Riders_web/" class="text-secondary-600 hover:text-primary-600 dark:text-secondary-300 dark:hover:text-primary-400 font-medium transition-colors">Inicio</a>
       <a href="/Los4Automaticos/presentacion" class="text-secondary-600 hover:text-primary-600 dark:text-secondary-300 dark:hover:text-primary-400 font-medium transition-colors">Presentación</a>
       -->
-      <a href="/Los4Automaticos/equipo" class="text-secondary-600 hover:text-primary-600 dark:text-secondary-300 dark:hover:text-primary-400 font-medium transition-colors">Equipo</a>
-      <a href="/Los4Automaticos/contacto" class="text-secondary-600 hover:text-primary-600 dark:text-secondary-300 dark:hover:text-primary-400 font-medium transition-colors">Contáctenos</a>
+      <a href="/Los4Automaticos/equipo" class="text-info-50 hover:text-info-200 dark:text-info-100 dark:hover:text-info-300 font-medium transition-colors">Equipo</a>
+      <a href="/Los4Automaticos/contacto" class="text-info-50 hover:text-info-200 dark:text-info-100 dark:hover:text-info-300 font-medium transition-colors">Contáctenos</a>
       
       <!-- All Pages Dropdown -->
       <div x-data="{ open: false }" class="relative">
         <button 
           @click="open = !open" 
           @click.away="open = false"
-          class="flex items-center text-secondary-600 hover:text-primary-600 dark:text-secondary-300 dark:hover:text-primary-400 font-medium transition-colors"
+          class="flex items-center text-info-50 hover:text-info-200 dark:text-info-100 dark:hover:text-info-300 font-medium transition-colors"
         >
           Módulos
           <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -59,12 +59,12 @@ const allPages = [
           x-transition:leave="transition ease-in duration-150"
           x-transition:leave-start="opacity-100 scale-100"
           x-transition:leave-end="opacity-0 scale-95"
-          class="absolute left-0 mt-2 w-56 bg-white dark:bg-secondary-900 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-hidden z-50 max-h-96 overflow-y-auto"
+          class="absolute left-0 mt-2 w-56 bg-primary-50 dark:bg-primary-950 rounded-md shadow-lg ring-1 ring-info-600 dark:ring-info-700 ring-opacity-5 focus:outline-hidden z-50 max-h-96 overflow-y-auto"
           x-cloak
         >
           <div class="py-2 grid grid-cols-1 gap-1">
             {allPages.map(page => (
-              <a href={page.url} class="block px-4 py-2 text-sm text-secondary-700 dark:text-secondary-300 hover:bg-secondary-100 dark:hover:bg-secondary-800">
+              <a href={page.url} class="block px-4 py-2 text-sm text-info-50 dark:text-info-100 hover:bg-secondary-600 dark:hover:bg-secondary-300">
                 {page.text}
               </a>
             ))}
@@ -72,14 +72,14 @@ const allPages = [
         </div>
       </div>
     
-      <a href="https://github.com/JoseAlejandroRosero/Los4Automaticos" class="text-secondary-600 hover:text-primary-600 dark:text-secondary-300 dark:hover:text-primary-400 font-medium transition-colors">Repositorio</a>
-      <a href="/Los4Automaticos/404" class="text-secondary-600 hover:text-primary-600 dark:text-secondary-300 dark:hover:text-primary-400 font-medium transition-colors">Reflexiones</a>
+      <a href="https://github.com/JoseAlejandroRosero/Los4Automaticos" class="text-info-50 hover:text-info-200 dark:text-info-100 dark:hover:text-info-300 font-medium font-medium transition-colors">Repositorio</a>
+      <a href="/Los4Automaticos/404" class="text-info-50 hover:text-info-200 dark:text-info-100 dark:hover:text-info-300 font-medium transition-colors">Reflexiones</a>
     </nav>
     
     <div class="flex items-center space-x-4">
       <button 
         x-on:click="darkMode = !darkMode" 
-        class="p-2 rounded-full text-secondary-500 hover:text-secondary-700 dark:text-secondary-400 dark:hover:text-secondary-200 focus:outline-hidden focus:ring-2 focus:ring-primary-500"
+        class="p-2 rounded-full text-info-50 hover:text-info-800 dark:text-info-950 dark:hover:text-info-900 focus:outline-hidden focus:ring-2 focus:ring-primary-500"
         aria-label="Toggle dark mode"
       >
         <svg x-show="!darkMode" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -100,7 +100,7 @@ const allPages = [
       <div x-data="{ open: false, showAllPages: false }">
         <button 
           @click="open = !open"
-          class="lg:hidden p-2 rounded-md text-secondary-600 hover:text-secondary-900 dark:text-secondary-300 dark:hover:text-white focus:outline-hidden focus:ring-2 focus:ring-primary-500"
+          class="lg:hidden p-2 rounded-md text-info-50 hover:text-info-600 dark:text-info-950 dark:hover:text-info-700 focus:outline-hidden focus:ring-2 focus:ring-info-950"
           aria-label="Toggle menu"
         >
           <svg x-show="!open" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -119,20 +119,20 @@ const allPages = [
           x-transition:leave="transition ease-in duration-150"
           x-transition:leave-start="opacity-100 scale-100"
           x-transition:leave-end="opacity-0 scale-95"
-          class="absolute top-16 right-4 w-48 py-2 bg-white dark:bg-secondary-900 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-hidden"
+          class="absolute top-16 right-4 w-48 py-2 bg-primary-50 dark:bg-primary-950 rounded-md shadow-lg ring-1 ring-info-950 ring-opacity-5 focus:outline-hidden"
           x-cloak
         >
 
-          <a href="/Los4Automaticos/" class="block px-4 py-2 text-sm text-secondary-700 dark:text-secondary-300 hover:bg-secondary-100 dark:hover:bg-secondary-800">Inicio</a>
-          <a href="/Los4Automaticos/presentacion" class="block px-4 py-2 text-sm text-secondary-700 dark:text-secondary-300 hover:bg-secondary-100 dark:hover:bg-secondary-800">Presentación</a>
-          <a href="/Los4Automaticos/contacto" class="block px-4 py-2 text-sm text-secondary-700 dark:text-secondary-300 hover:bg-secondary-100 dark:hover:bg-secondary-800">Contáctenos</a>
-          <a href="/Los4Automaticos/asignatura" class="block px-4 py-2 text-sm text-secondary-700 dark:text-secondary-300 hover:bg-secondary-100 dark:hover:bg-secondary-800">Asignatura</a>
-          <a href="https://github.com/JoseAlejandroRosero/Los4Automaticos" class="block px-4 py-2 text-sm text-secondary-700 dark:text-secondary-300 hover:bg-secondary-100 dark:hover:bg-secondary-800">Repositorio</a>
+          <a href="/Los4Automaticos/" class="block px-4 py-2 text-sm text-info-50 dark:text-info-100 hover:bg-secondary-600 dark:hover:bg-secondary-300">Inicio</a>
+          <a href="/Los4Automaticos/presentacion" class="block px-4 py-2 text-sm text-info-50 dark:text-info-100 hover:bg-secondary-600 dark:hover:bg-secondary-300">Presentación</a>
+          <a href="/Los4Automaticos/contacto" class="block px-4 py-2 text-sm text-info-50 dark:text-info-100 hover:bg-secondary-600 dark:hover:bg-secondary-300">Contáctenos</a>
+          <a href="/Los4Automaticos/asignatura" class="block px-4 py-2 text-sm text-info-50 dark:text-info-100 hover:bg-secondary-600 dark:hover:bg-secondary-300">Asignatura</a>
+          <a href="https://github.com/JoseAlejandroRosero/Los4Automaticos" class="block px-4 py-2 text-sm text-info-50 dark:text-info-100 hover:bg-secondary-600 dark:hover:bg-secondary-300">Repositorio</a>
           
           <!-- Mobile All Pages Dropdown -->
           <button 
             @click="showAllPages = !showAllPages" 
-            class="w-full text-left px-4 py-2 text-sm text-secondary-700 dark:text-secondary-300 hover:bg-secondary-100 dark:hover:bg-secondary-800 font-semibold border-t border-gray-200 dark:border-gray-700 mt-1 pt-1 flex items-center justify-between"
+            class="w-full text-left px-4 py-2 text-sm text-info-50 dark:text-info-100 hover:bg-secondary-600 dark:hover:bg-secondary-300 font-semibold border-t border-accent-50 dark:border-accent-950 mt-1 pt-1 flex items-center justify-between"
           >
             Módulos
             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" :class="{ 'transform rotate-180': showAllPages }">
@@ -142,7 +142,7 @@ const allPages = [
           
           <div 
             x-show="showAllPages" 
-            class="py-1 bg-gray-50 dark:bg-secondary-800"
+            class="py-1 bg-gray-50 dark:bg-primary-950"
           >
             {allPages.map(page => (
               <a href={page.url} class="block px-6 py-1 text-sm text-secondary-700 dark:text-secondary-300 hover:bg-secondary-100 dark:hover:bg-secondary-700">
@@ -151,7 +151,7 @@ const allPages = [
             ))}
           </div>
 
-          <a href="/Los4Automaticos/404" class="block px-4 py-2 text-sm text-secondary-700 dark:text-secondary-300 hover:bg-secondary-100 dark:hover:bg-secondary-800">Reflexiones</a>
+          <a href="/Los4Automaticos/404" class="block px-4 py-2 text-sm text-info-50 dark:text-info-100 hover:bg-secondary-600 dark:hover:bg-secondary-300">Reflexiones</a>
         </div>
       </div>
     </div>

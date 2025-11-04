@@ -21,11 +21,11 @@ const products = [
 <section id="products" class="section">
   <div class="container-custom">
     <div class="text-center max-w-3xl mx-auto mb-16">
-      <span class="inline-block px-4 py-1 rounded-full bg-primary-100 dark:bg-primary-800 text-primary-800 dark:text-primary-50 font-medium text-sm mb-4">
+      <span class="inline-block px-4 py-1 rounded-full bg-accent-50 dark:bg-accent-950 text-info-400 dark:text-info-500 font-medium text-sm mb-4">
         Nuestros productos
       </span>
-	  <h2 class="mb-6 text-gray-900 dark:text-white">Motorreductores y Equipos de Transmición de potencia</h2>
-      <p class="text-gray-600 dark:text-gray-300">
+	  <h2 class="mb-6 text-info-400 dark:text-info-500">Motorreductores y Equipos de Transmición de potencia</h2>
+      <p class="text-info-50 dark:text-info-100">
 	  Equipos confiables, seguros y de calidad. Los 4 Automáticos ofrece solucionres para su empresa a través de su servicio personalizado, el cual asegura que usted pueda resolver todas sus necesidades. Es así que nos especializamos en la fabricación de equipos de transmición de potencia <br>
       </p>
     </div>
@@ -33,11 +33,11 @@ const products = [
     <div class="grid md:grid-cols-3 gap-8">
       {products.map((product, index) => (
         <div 
-          class="card dark:bg-secondary-700  p-6 border border-gray-200 dark:border-gray-700 slide-up" 
+          class="card dark:bg-secondary-700  p-6 border border-info-600 dark:border-info-700 slide-up" 
           style={`animation-delay: ${index * 150}ms`}
         >
           {/* Título - nombre del producto */}
-          <h3 class="text-xl font-semibold mb-4 text-gray-900 dark:text-white">{product.productName}</h3>
+          <h3 class="text-xl font-semibold mb-4 text-info-50 dark:text-info-100">{product.productName}</h3>
 
           {/* Imagen del producto */}
           <img 
@@ -48,7 +48,7 @@ const products = [
           />
 
           {/* Descripción del producto */}
-          <p class="text-gray-700 dark:text-gray-300">{product.productDescription}</p>
+          <p class="text-info-400 dark:text-info-500">{product.productDescription}</p>
         </div>
       ))}
     </div>

@@ -30,11 +30,11 @@ const team = [
 <section id="team" class="section bg-gray-50 dark:bg-gray-800/50">
   <div class="container-custom">
     <div class="text-center max-w-3xl mx-auto mb-16">
-      <span class="inline-block px-4 py-1 rounded-full bg-primary-100 dark:bg-primary-950 text-primary-800 dark:text-primary-50 font-medium text-sm mb-4">
+      <span class="inline-block px-4 py-1 rounded-full bg-primary-100 dark:bg-primary-950 text-info-400 dark:text-info-500 font-medium text-sm mb-4">
 			  La fuerza del equipo viene de cada Miembro. La fuerza de cada miembro es la fuerza del equipo.
       </span>
-      <h2 class="mb-6 text-gray-900 dark:text-white">Conoce a nuestro equipo</h2>
-      <p class="text-gray-600 dark:text-gray-300">
+      <h2 class="mb-6 text-info-50 dark:text-info-100">Conoce a nuestro equipo</h2>
+      <p class="text-info-400 dark:text-info-500">
         Un equipo dedicado a dar lo mejor en cada proyecto
       </p>
     </div>
@@ -43,7 +43,7 @@ const team = [
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-8">
       {team.map((person, index) => (
         <div 
-          class="card p-6 border border-gray-200 dark:border-gray-700 text-center slide-up"
+          class="card p-6 border border-info-600 dark:border-info-700 text-center slide-up"
           style={`animation-delay: ${index * 100}ms`}
 		</div>
           <div class={`w-60 h-60 mx-auto mb-6 rounded-full overflow-hidden border-4 border-${person.color}-200 dark:border-${person.color}-800`}>
