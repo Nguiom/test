@@ -261,24 +261,27 @@ import HeroSection from '../components/HeroSection.astro';
     <!-- =========================
      SECCIÓN - SUGERENCIA DE CONFIGURACIÓN INICIAL PARA PROTOTIPO DE CELDA
     ========================== -->
-    <section class="py-16 bg-white dark:bg-gray-900">
-      <div class="container-custom">
-        <div class="text-center max-w-3xl mx-auto mb-10 px-4">
-            <span class="inline-block px-4 py-1 rounded-full bg-accent-50 text-info-50 dark:bg-accent-950 dark:text-100 font-medium text-sm mb-4">
-              Elementos de la celda
-            </span>
+    <section class="grid-cards">
+          <div class="card">
+              <h3>ELEMENTO 1</h3>
+              <img src="ruta/imagen1.jpg" alt="">
+              <p>D1.</p>
           </div>
       
-    
-        <div class="max-w-4xl mx-auto text-gray-700 dark:text-gray-300 text-justify space-y-4 px-4">
-          <ul class="list-disc list-inside space-y-3">
-            <li>
-              
-            </li>
-
-          </ul>
-        </div>
-      </div>
+          <div class="card">
+              <h3>ELEMENTO 2</h3>
+              <img src="ruta/imagen1.jpg" alt="">
+              <p>D2.</p>
+          </div>
+      
+          <div class="card">
+              <h3>ELEMENTO 3</h3>
+              <img src="ruta/imagen1.jpg" alt="">
+              <p>D3.</p>
+          </div>
+      
+          <!-- DUPLICA ESTO PARA NUEVAS FILAS -->
+          <!-- <div class="card"> ... </div> -->
     </section>
 
     <!-- =========================
