@@ -261,27 +261,47 @@ import HeroSection from '../components/HeroSection.astro';
     <!-- =========================
      SECCIÓN - SUGERENCIA DE CONFIGURACIÓN INICIAL PARA PROTOTIPO DE CELDA
     ========================== -->
-    <section class="grid-cards">
-          <div class="card">
-              <h3>ELEMENTO 1</h3>
-              <img src="ruta/imagen1.jpg" alt="">
-              <p>D1.</p>
+    <section class="py-16 bg-white dark:bg-gray-800">
+        <div class="container-custom mx-auto px-6">
+          
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            
+                  <!-- Card 1 -->
+                  <div class="p-6 rounded-xl bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-200">
+                    <h3 class="text-lg font-semibold mb-4 text-gray-900 dark:text-white text-center">
+                      TÍTULO
+                    </h3>
+                    <img src="ruta/imagen1.jpg" alt="" class="w-full rounded-lg mb-4">
+                    <p class="text-sm leading-relaxed">
+                      PÁRRAFO
+                    </p>
+                  </div>
+            
+                  <!-- Card 2 -->
+                  <div class="p-6 rounded-xl bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-200">
+                    <h3 class="text-lg font-semibold mb-4 text-gray-900 dark:text-white text-center">
+                      TÍTULO
+                    </h3>
+                    <img src="ruta/imagen1.jpg" alt="" class="w-full rounded-lg mb-4">
+                    <p class="text-sm leading-relaxed">
+                      PÁRRAFO
+                    </p>
+                  </div>
+            
+                  <!-- Card 3 -->
+                  <div class="p-6 rounded-xl bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-200">
+                    <h3 class="text-lg font-semibold mb-4 text-gray-900 dark:text-white text-center">
+                      TÍTULO
+                    </h3>
+                    <img src="ruta/imagen1.jpg" alt="" class="w-full rounded-lg mb-4">
+                    <p class="text-sm leading-relaxed">
+                      PÁRRAFO
+                    </p>
+                  </div>
+      
           </div>
       
-          <div class="card">
-              <h3>ELEMENTO 2</h3>
-              <img src="ruta/imagen1.jpg" alt="">
-              <p>D2.</p>
-          </div>
-      
-          <div class="card">
-              <h3>ELEMENTO 3</h3>
-              <img src="ruta/imagen1.jpg" alt="">
-              <p>D3.</p>
-          </div>
-      
-          <!-- DUPLICA ESTO PARA NUEVAS FILAS -->
-          <!-- <div class="card"> ... </div> -->
+        </div>
     </section>
 
     <!-- =========================
