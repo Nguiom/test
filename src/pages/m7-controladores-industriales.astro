@@ -21,6 +21,16 @@ import HeroSection from '../components/HeroSection.astro';
       <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-white mb-10">
         Lógica GRAFCET
       </h2>
+      <p>
+      La lógica del sistema con cinco bandas transportadoras, un sistema de ingreso, 
+      y tres rutinas de ensamblaje, además de una parada general; es ña siguiente: cada secuencia es
+      independiente y de ahí que exista un bifurcación tipo AND con el número de secciones independientes, las 5 primeras
+      son idénticas salvo el número de banda transportadora que se controla, para estas las descripción cíclica empieza en una 
+      etapa de espera seguida de una etapa de activación de la banda transportadora a través de un boton de arranque y se 
+      verifica que no exista material al final de ella, posteriormente existe una desactivación de la banda a través de la llegada 
+      del material al final de la banda o por un boton de parada esta etapa es conectada a la transición relacionada con el botón 
+      de arranque y el sensor al final de la banda. 
+      </p>
 
       <!-- FUNCIONAL -->
       <div>
