@@ -13,67 +13,7 @@ import HeroSection from '../components/HeroSection.astro';
     <HeroSection 
       title="Módulo 2: Gestión de Producción" 
       highlightText="Módulo 2:"
-      description="Se presentan los diagramas asociados a la gestión y evaluación de la producción automatizada en una etapa preliminar"
     />
-
-    <!-- SECCIÓN: Imágenes y diagramas individuales -->
-    <section class="py-16 bg-white dark:bg-gray-800">
-      <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-white mb-10">
-        Diagramas y análisis de la celda de manufactura
-      </h2>
-
-      <!-- Operación del proceso -->
-      <div class="mb-10">
-        <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4 text-center">
-          Operación del proceso
-        </h3>
-        <div class="flex justify-center">
-          <img src="../images/APM_D_PROCESO.png" alt="Operación del proceso" class="w-[700px] rounded-lg shadow-md object-contain" />
-        </div>
-      </div>
-      
-      <!-- Análisis de proceso -->
-      <div class="mb-10">
-        <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4 text-center">
-          Análisis de proceso
-        </h3>
-        <div class="flex flex-wrap justify-center gap-6">
-          <img src="../images/APM_ANÁLISIS_PROCESO.png" alt="Análisis de proceso 1" class="w-[320px] rounded-lg shadow-md object-contain" />
-        </div>
-      </div>
-    
-      <!-- Layout de la celda -->
-      <div class="mb-10">
-        <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4 text-center">
-          Layout de la celda
-        </h3>
-        <div class="flex flex-wrap justify-center gap-6">
-          <img src="../images/LAYOUT_1.jpg" alt="Layout 1" class="w-[500px] rounded-lg shadow-md object-contain" />
-          <img src="../images/LAYOUT_2.jpg" alt="Layout 2" class="w-[500px] rounded-lg shadow-md object-contain" />
-        </div>
-      </div>
-    
-      <!-- Diagrama Spaguetti -->
-      <div class="mb-10">
-        <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4 text-center">
-          Diagrama Spaguetti
-        </h3>
-        <div class="flex flex-wrap justify-center gap-6">
-          <img src="../images/SPAGUETTI_2.jpg" alt="Diagrama Spaguetti 1" class="w-[500px] rounded-lg shadow-md object-contain" />
-          <img src="../images/SPAGUETTI_1.jpg" alt="Diagrama Spaguetti 2" class="w-[500px] rounded-lg shadow-md object-contain" />
-        </div>
-      </div>
-    
-      <!-- Mapa de valor -->
-      <div>
-        <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4 text-center">
-          Mapa de flujo de valor (VSM)
-        </h3>
-        <div class="flex justify-center">
-          <img src="../images/VSM_APM.jpeg" alt="Mapa de flujo de valor" class="w-[700px] rounded-lg shadow-md object-contain" />
-        </div>
-      </div>
-    </section>
 
     <!-- ============================= -->
     <!-- GESTIÓN Y EVALUACIÓN (KPI / Takt) -->
@@ -92,10 +32,30 @@ import HeroSection from '../components/HeroSection.astro';
         <strong>500 motoreductores/semana</strong> mediante la automatización y el balanceo de la línea.
       </p>
 
+      <!-- Operación del proceso -->
+      <div class="mb-10">
+        <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4 text-center">
+          Operación del proceso
+        </h3>
+        <div class="flex justify-center">
+          <img src="../images/APM_D_PROCESO.png" alt="Operación del proceso" class="w-[700px] rounded-lg shadow-md object-contain" />
+        </div>
+      </div>
+
       <!-- ================= Escenario actual (40/sem) ================= -->
       <h3 class="text-2xl font-semibold text-sky-700 dark:text-sky-300 mt-10 mb-4">
         Escenario actual (40 motoreductores/semana – baja automatización)
       </h3>
+
+      <!-- Análisis de proceso -->
+      <div class="mb-10">
+        <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4 text-center">
+          Análisis de proceso
+        </h3>
+        <div class="flex flex-wrap justify-center gap-6">
+          <img src="../images/APM_ANÁLISIS_PROCESO.png" alt="Análisis de proceso 1" class="w-[320px] rounded-lg shadow-md object-contain" />
+        </div>
+      </div>
 
       <p class="mb-4 text-justify">
         En el escenario actual, la celda opera de forma principalmente manual, con movimientos de
@@ -103,6 +63,7 @@ import HeroSection from '../components/HeroSection.astro';
         <strong> 40 motoreductores</strong>, por lo que la línea se encuentra muy por debajo de su
         capacidad potencial y presenta una utilización reducida.
       </p>
+
 
       <div class="overflow-x-auto mb-6">
         <table class="w-full text-sm border border-gray-200 dark:border-gray-700">
@@ -162,6 +123,9 @@ import HeroSection from '../components/HeroSection.astro';
         Productividad_MO_actual = 40 unidades / 4 trabajadores = 10 unidades/trabajador/semana
       </p>
 
+    <!-- SECCIÓN: Imágenes y diagramas individuales -->
+    
+  
       <!-- Pregunta 2 -->
       <h4 class="text-xl font-semibold text-sky-800 dark:text-sky-200 mt-8 mb-3">
         2. Takt time requerido (escenario actual)
@@ -173,6 +137,17 @@ import HeroSection from '../components/HeroSection.astro';
       <p class="mb-3 font-mono text-sm bg-gray-100 dark:bg-gray-800 px-3 py-2 rounded">
         TT_actual = 7&nbsp;680 min/semana / 40 unidades ≈ 192 min/unidad
       </p>
+
+      <!-- Layout de la celda -->
+      <div class="mb-10">
+        <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4 text-center">
+          Layout de la celda
+        </h3>
+        <div class="flex flex-wrap justify-center gap-6">
+          <img src="../images/LAYOUT_1.jpg" alt="Layout 1" class="w-[500px] rounded-lg shadow-md object-contain" />
+          <img src="../images/LAYOUT_2.jpg" alt="Layout 2" class="w-[500px] rounded-lg shadow-md object-contain" />
+        </div>
+      </div>
 
       <!-- Pregunta 3 -->
       <h4 class="text-xl font-semibold text-sky-800 dark:text-sky-200 mt-8 mb-3">
@@ -191,6 +166,17 @@ import HeroSection from '../components/HeroSection.astro';
         un amplio margen para absorber incrementos de volumen mediante un rediseño automatizado.
       </p>
 
+      <!-- Diagrama Spaguetti -->
+      <div class="mb-10">
+        <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4 text-center">
+          Diagrama Spaguetti
+        </h3>
+        <div class="flex flex-wrap justify-center gap-6">
+          <img src="../images/SPAGUETTI_2.jpg" alt="Diagrama Spaguetti 1" class="w-[500px] rounded-lg shadow-md object-contain" />
+          <img src="../images/SPAGUETTI_1.jpg" alt="Diagrama Spaguetti 2" class="w-[500px] rounded-lg shadow-md object-contain" />
+        </div>
+      </div>
+
       <!-- Pregunta 5 y 6 (resumen actual) -->
       <h4 class="text-xl font-semibold text-sky-800 dark:text-sky-200 mt-8 mb-3">
         5. MLT y 6. Disponibilidad en el escenario actual
@@ -208,6 +194,19 @@ import HeroSection from '../components/HeroSection.astro';
         tiempos medios entre fallas (MTBF) de 480 min y tiempos medios de reparación (MTTR) de
         45 min:
       </p>
+
+      <!-- Mapa de valor -->
+      <div>
+        <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4 text-center">
+          Mapa de flujo de valor (VSM)
+        </h3>
+        <div class="flex justify-center">
+          <img src="../images/VSM_APM.jpeg" alt="Mapa de flujo de valor" class="w-[700px] rounded-lg shadow-md object-contain" />
+        </div>
+      </div>
+    </section>
+
+
       <p class="mb-3 font-mono text-sm bg-gray-100 dark:bg-gray-800 px-3 py-2 rounded">
         A_actual = 480 / (480 + 45) × 100 % ≈ 91.4 %
       </p>
