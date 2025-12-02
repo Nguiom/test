@@ -23,7 +23,7 @@ import HeroSection from '../components/HeroSection.astro';
       </h2>
 
       <!-- Operación del proceso -->
-      <div>
+      <div class="mb-10">
         <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4 text-center">
           Operación del proceso
         </h3>
@@ -33,7 +33,7 @@ import HeroSection from '../components/HeroSection.astro';
       </div>
       
       <!-- Análisis de proceso -->
-      <div>
+      <div class="mb-10">
         <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4 text-center">
           Análisis de proceso
         </h3>
@@ -43,7 +43,7 @@ import HeroSection from '../components/HeroSection.astro';
       </div>
     
       <!-- Layout de la celda -->
-      <div>
+      <div class="mb-10">
         <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4 text-center">
           Layout de la celda
         </h3>
@@ -54,7 +54,7 @@ import HeroSection from '../components/HeroSection.astro';
       </div>
     
       <!-- Diagrama Spaguetti -->
-      <div>
+      <div class="mb-10">
         <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4 text-center">
           Diagrama Spaguetti
         </h3>
@@ -74,13 +74,311 @@ import HeroSection from '../components/HeroSection.astro';
         </div>
       </div>
     </section>
-    
-    <!-- KPI -->
+
+    <!-- ============================= -->
+    <!-- GESTIÓN Y EVALUACIÓN (KPI / Takt) -->
+    <!-- ============================= -->
+    <section id="gestion-produccion" class="max-w-5xl mx-auto px-4 py-16 text-gray-900 dark:text-gray-100">
+      <h2 class="text-3xl font-bold mb-6 border-b border-gray-300 dark:border-gray-700 pb-3">
+        Gestión y evaluación de la producción automatizada
+      </h2>
+
+      <p class="mb-6 text-justify">
+        En esta sección se presentan los principales indicadores de desempeño de la línea de producción
+        del motorreductor, calculados a partir del modelo de <strong>Plant Simulation</strong> y de los
+        datos de demanda del cliente. El foco está en el <strong>Takt time</strong> y en los
+        <strong>KPI</strong> necesarios para dimensionar la capacidad de la línea antes y después
+        de la nueva estrategia de producción.
+      </p>
+
+      <!-- ESCENARIO ACTUAL -->
+      <h3 class="text-2xl font-semibold text-sky-700 dark:text-sky-300 mt-10 mb-4">
+        Escenario actual de producción (500 unidades/mes)
+      </h3>
+
+      <div class="border-2 border-dashed border-gray-400 dark:border-gray-500 rounded-lg p-6 my-6 text-center text-sm text-gray-600 dark:text-gray-300 bg-gray-50 dark:bg-gray-900/40">
+        Espacio para la <strong>gráfica general de utilización de recursos</strong> del escenario
+        actual (Resource Statistics – Plant Simulation).
+      </div>
+
+      <h4 class="text-xl font-semibold text-sky-800 dark:text-sky-200 mb-3">
+        Indicadores generales de la línea
+      </h4>
+
+      <div class="overflow-x-auto">
+        <table class="w-full text-sm border border-gray-200 dark:border-gray-700 mb-6">
+          <thead class="bg-gray-100 dark:bg-gray-800">
+            <tr>
+              <th class="px-3 py-2 text-left">KPI</th>
+              <th class="px-3 py-2 text-left">Descripción</th>
+              <th class="px-3 py-2 text-left">Valor (Escenario actual)</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
+            <tr>
+              <td class="px-3 py-2 font-semibold">Takt Time (TT)</td>
+              <td class="px-3 py-2">Tiempo disponible por unidad para cumplir la demanda mensual de 500 motorreductores.</td>
+              <td class="px-3 py-2">[TT_ACTUAL_MIN] min/unidad</td>
+            </tr>
+            <tr>
+              <td class="px-3 py-2 font-semibold">Tiempo de ciclo (Tc)</td>
+              <td class="px-3 py-2">Tiempo promedio de producción por unidad en la estación cuello de botella.</td>
+              <td class="px-3 py-2">[TC_BOTTLENECK_ACTUAL_MIN] min/unidad</td>
+            </tr>
+            <tr>
+              <td class="px-3 py-2 font-semibold">Tiempo de preparación (Tsu)</td>
+              <td class="px-3 py-2">Tiempo total de alistamiento y cambios de referencia por lote.</td>
+              <td class="px-3 py-2">[TSU_ACTUAL_MIN] min/lote</td>
+            </tr>
+            <tr>
+              <td class="px-3 py-2 font-semibold">Tasa de producción (Rp)</td>
+              <td class="px-3 py-2">Unidades producidas por hora efectiva de la línea.</td>
+              <td class="px-3 py-2">[RP_ACTUAL_UPH] unidades/hora</td>
+            </tr>
+            <tr>
+              <td class="px-3 py-2 font-semibold">Productividad de mano de obra</td>
+              <td class="px-3 py-2">Unidades producidas por trabajador al mes.</td>
+              <td class="px-3 py-2">[PROD_MO_ACTUAL] unidades/trabajador/mes</td>
+            </tr>
+            <tr>
+              <td class="px-3 py-2 font-semibold">MLT</td>
+              <td class="px-3 py-2">Tiempo total que tarda un producto en recorrer toda la línea.</td>
+              <td class="px-3 py-2">[MLT_1UNIDAD_ACTUAL_MIN] min (1ª unidad)</td>
+            </tr>
+            <tr>
+              <td class="px-3 py-2 font-semibold">Disponibilidad (A)</td>
+              <td class="px-3 py-2">Porcentaje de tiempo en que la línea está disponible (fallas y paradas incluidas).</td>
+              <td class="px-3 py-2">[DISPONIBILIDAD_ACTUAL_PCT] %</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- 1. Productividad mano de obra -->
+      <h4 class="text-xl font-semibold text-sky-800 dark:text-sky-200 mt-8 mb-3">
+        1. Productividad de mano de obra (unidades/trabajador/mes)
+      </h4>
+      <p class="mb-3 text-justify">
+        Para la situación actual, la productividad de mano de obra se calcula dividiendo la producción
+        mensual entre el número de trabajadores asignados a la línea:
+      </p>
+      <p class="mb-3 font-mono text-sm bg-gray-100 dark:bg-gray-800 px-3 py-2 rounded">
+        Productividad_MO = Producción_mensual / Nº_trabajadores_línea
+      </p>
+      <p class="mb-3 text-justify">
+        Considerando una demanda de <strong>500 motorreductores/mes</strong> y 
+        [N_TRABAJADORES_LINEA] operadores directamente involucrados en el proceso de ensamble,
+        la productividad obtenida es:
+      </p>
+      <p class="mb-6">
+        <strong>Productividad de mano de obra actual:</strong>
+        [PROD_MO_ACTUAL] unidades/trabajador/mes.
+      </p>
+
+      <!-- 2. Takt time -->
+      <h4 class="text-xl font-semibold text-sky-800 dark:text-sky-200 mt-8 mb-3">
+        2. Takt time requerido (min)
+      </h4>
+      <p class="mb-3 text-justify">
+        El <strong>Takt time</strong> define el ritmo al que la línea debe producir para satisfacer la
+        demanda del cliente:
+      </p>
+      <p class="mb-3 font-mono text-sm bg-gray-100 dark:bg-gray-800 px-3 py-2 rounded">
+        TT = (Días_laborales_mes × Horas_turno × 60 × Factor_disponible) / Demanda_mensual
+      </p>
+      <p class="mb-6 text-justify">
+        Usando los parámetros de operación de la planta ([DIAS_MES] días/mes,
+        [HORAS_TURNO] h/turno y un factor de disponibilidad planificada de 
+        [FACTOR_DISP_PLANIFICADA_PCT] %), se obtiene un 
+        <strong>Takt time requerido actual de [TT_ACTUAL_MIN] min/unidad</strong>.
+      </p>
+
+      <!-- 3. Utilización -->
+      <h4 class="text-xl font-semibold text-sky-800 dark:text-sky-200 mt-8 mb-3">
+        3. Utilización (%) del sistema de producción
+      </h4>
+      <p class="mb-3 text-justify">
+        La utilización del sistema se determina como la relación entre el tiempo en operación productiva 
+        de la línea y el tiempo disponible:
+      </p>
+      <p class="mb-3 font-mono text-sm bg-gray-100 dark:bg-gray-800 px-3 py-2 rounded">
+        Utilización = (Tiempo_en_producción / Tiempo_calendario) × 100 %
+      </p>
+      <p class="mb-6 text-justify">
+        De acuerdo con las estadísticas del modelo, el sistema presenta una 
+        <strong>utilización global de [UTILIZACION_ACTUAL_PCT] %</strong> bajo la demanda de 
+        500 unidades/mes.
+      </p>
+
+      <!-- 4. Tiempo de ciclo máximo -->
+      <h4 class="text-xl font-semibold text-sky-800 dark:text-sky-200 mt-8 mb-3">
+        4. Valor máximo del tiempo de ciclo en las estaciones
+      </h4>
+      <p class="mb-3 text-justify">
+        Para garantizar que la línea cumpla la demanda sin generar colas crecientes, el 
+        <strong>tiempo de ciclo máximo permitido</strong> en cualquier estación debe ser menor o igual 
+        al Takt time:
+      </p>
+      <p class="mb-3 font-mono text-sm bg-gray-100 dark:bg-gray-800 px-3 py-2 rounded">
+        Tc_máx ≈ TT_actual
+      </p>
+      <p class="mb-3 text-justify">
+        En la práctica se usa un margen de seguridad de [MARGEN_SEGURIDAD_PCT] %:
+      </p>
+      <p class="mb-3 font-mono text-sm bg-gray-100 dark:bg-gray-800 px-3 py-2 rounded">
+        Tc_diseño ≤ TT_actual × (1 − Margen_seguridad)
+      </p>
+      <p class="mb-6 text-justify">
+        Para este proyecto, con un Takt time de [TT_ACTUAL_MIN] min/unidad y dicho margen, el tiempo 
+        de ciclo de diseño en cada estación se fijó en 
+        <strong>[TC_MAX_DISENO_MIN] min/unidad</strong>. Ninguna estación del modelo supera este valor.
+      </p>
+
+      <!-- 5. MLT -->
+      <h4 class="text-xl font-semibold text-sky-800 dark:text-sky-200 mt-8 mb-3">
+        5. Manufacturing Lead Time (MLT)
+      </h4>
+      <p class="mb-3 text-justify">
+        El <strong>MLT</strong> se obtuvo directamente del modelo siguiendo la traza de una unidad 
+        desde la entrada de materias primas hasta el despacho. Se distinguen:
+      </p>
+      <ul class="list-disc ml-6 mb-3">
+        <li>MLT para la primera unidad.</li>
+        <li>MLT para un lote de 50 unidades.</li>
+      </ul>
+      <p class="mb-6">
+        <strong>MLT primera unidad:</strong> [MLT_1UNIDAD_ACTUAL_MIN] min<br />
+        <strong>MLT lote de 50 unidades:</strong> [MLT_50UNIDADES_ACTUAL_MIN] min
+      </p>
+
+      <div class="border-2 border-dashed border-gray-400 dark:border-gray-500 rounded-lg p-6 my-6 text-center text-sm text-gray-600 dark:text-gray-300 bg-gray-50 dark:bg-gray-900/40">
+        Espacio para la <strong>gráfica de MLT</strong> (distribución de tiempos de permanencia
+        en el sistema para 1 unidad y para el lote de 50 unidades).
+      </div>
+
+      <!-- 6. Disponibilidad -->
+      <h4 class="text-xl font-semibold text-sky-800 dark:text-sky-200 mt-8 mb-3">
+        6. Disponibilidad de la línea de producción
+      </h4>
+      <p class="mb-3 text-justify">
+        La <strong>disponibilidad</strong> se calculó incorporando las fallas y tiempos de reparación
+        definidos en el modelo:
+      </p>
+      <p class="mb-3 font-mono text-sm bg-gray-100 dark:bg-gray-800 px-3 py-2 rounded">
+        A = MTBF / (MTBF + MTTR) × 100 %
+      </p>
+      <p class="mb-6 text-justify">
+        Con los parámetros utilizados, la línea presenta una disponibilidad global de 
+        <strong>[DISPONIBILIDAD_ACTUAL_PCT] %</strong>.
+      </p>
+
+      <div class="border-2 border-dashed border-gray-400 dark:border-gray-500 rounded-lg p-6 my-6 text-center text-sm text-gray-600 dark:text-gray-300 bg-gray-50 dark:bg-gray-900/40">
+        Espacio para la <strong>gráfica de estados de máquina</strong> 
+        (Working / Waiting / Blocked / Failed) por recurso en el escenario actual.
+      </div>
+
+      <!-- NUEVA ESTRATEGIA -->
+      <h3 class="text-2xl font-semibold text-sky-700 dark:text-sky-300 mt-12 mb-4">
+        Nueva estrategia de producción (demanda aumentada)
+      </h3>
+
+      <p class="mb-4 text-justify">
+        Para evaluar la nueva estrategia, se aumentó la demanda mensual a 
+        <strong>[DEMANDA_NUEVA_MENSUAL] motorreductores/mes</strong> y se actualizó el modelo 
+        de Plant Simulation conservando la misma dotación de recursos.
+      </p>
+
+      <div class="border-2 border-dashed border-gray-400 dark:border-gray-500 rounded-lg p-6 my-6 text-center text-sm text-gray-600 dark:text-gray-300 bg-gray-50 dark:bg-gray-900/40">
+        Espacio para la <strong>gráfica de utilización de recursos</strong> con la nueva demanda.
+      </div>
+
+      <!-- 9. Nuevo Takt time -->
+      <h4 class="text-xl font-semibold text-sky-800 dark:text-sky-200 mt-8 mb-3">
+        9. Nuevo Takt time requerido
+      </h4>
+      <p class="mb-3 text-justify">
+        El nuevo <strong>Takt time</strong> se recalcula con la misma disponibilidad de tiempo pero 
+        con la demanda incrementada:
+      </p>
+      <p class="mb-3 font-mono text-sm bg-gray-100 dark:bg-gray-800 px-3 py-2 rounded">
+        TT_nuevo = (Días_laborales_mes × Horas_turno × 60 × Factor_disponible) /
+        Demanda_nueva_mensual
+      </p>
+      <p class="mb-6 text-justify">
+        Dado que la demanda pasó de 500 a [DEMANDA_NUEVA_MENSUAL] unidades/mes, el Takt time se reduce 
+        de [TT_ACTUAL_MIN] min/unidad a un 
+        <strong>nuevo Takt time de [TT_NUEVO_MIN] min/unidad</strong>.
+      </p>
+
+      <div class="overflow-x-auto mb-6">
+        <table class="w-full text-sm border border-gray-200 dark:border-gray-700">
+          <thead class="bg-gray-100 dark:bg-gray-800">
+            <tr>
+              <th class="px-3 py-2 text-left">KPI</th>
+              <th class="px-3 py-2 text-left">Escenario actual</th>
+              <th class="px-3 py-2 text-left">Nueva estrategia</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
+            <tr>
+              <td class="px-3 py-2">Takt Time (min/unidad)</td>
+              <td class="px-3 py-2">[TT_ACTUAL_MIN]</td>
+              <td class="px-3 py-2">[TT_NUEVO_MIN]</td>
+            </tr>
+            <tr>
+              <td class="px-3 py-2">Tc estación cuello de botella (min/unidad)</td>
+              <td class="px-3 py-2">[TC_BOTTLENECK_ACTUAL_MIN]</td>
+              <td class="px-3 py-2">[TC_BOTTLENECK_NUEVO_MIN]</td>
+            </tr>
+            <tr>
+              <td class="px-3 py-2">Utilización línea (%)</td>
+              <td class="px-3 py-2">[UTILIZACION_ACTUAL_PCT]</td>
+              <td class="px-3 py-2">[UTILIZACION_NUEVA_PCT]</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="border-2 border-dashed border-gray-400 dark:border-gray-500 rounded-lg p-6 my-6 text-center text-sm text-gray-600 dark:text-gray-300 bg-gray-50 dark:bg-gray-900/40">
+        Espacio para la <strong>gráfica comparativa de KPI</strong> (Takt, Tc, Utilización)
+        antes y después de la nueva estrategia.
+      </div>
+
+      <!-- 10. Aumento de capacidad -->
+      <h4 class="text-xl font-semibold text-sky-800 dark:text-sky-200 mt-8 mb-3">
+        10. ¿Se requiere aumento de capacidad para cubrir la nueva estrategia?
+      </h4>
+      <p class="mb-3 text-justify">
+        La necesidad de aumentar la capacidad se evalúa comparando el 
+        <strong>tiempo de ciclo de la estación crítica</strong> con el nuevo Takt time y revisando 
+        la utilización resultante:
+      </p>
+      <p class="mb-3 font-mono text-sm bg-gray-100 dark:bg-gray-800 px-3 py-2 rounded">
+        Si Tc_bottleneck &gt; TT_nuevo o Utilización &gt; 85–90 % → es necesario aumentar capacidad.
+      </p>
+      <p class="mb-3 text-justify">
+        Con la nueva demanda, el modelo muestra que el Takt time es [TT_NUEVO_MIN] min/unidad, el 
+        tiempo de ciclo en la estación cuello de botella es [TC_BOTTLENECK_NUEVO_MIN] min/unidad y la 
+        utilización de dicha estación alcanza [UTILIZACION_BOTTLENECK_NUEVA_PCT] %.
+      </p>
+      <p class="mb-3 text-justify">
+        Dado que <strong>[TC_BOTTLENECK_NUEVO_MIN] &gt; [TT_NUEVO_MIN]</strong> y la utilización supera
+        el umbral recomendado, se concluye que <strong>sí se requiere un aumento de capacidad</strong>. 
+        Algunas alternativas son:
+      </p>
+      <ul class="list-disc ml-6 mb-6">
+        <li>Agregar un segundo puesto de trabajo en paralelo en la estación cuello de botella.</li>
+        <li>Redistribuir tareas hacia estaciones con menor carga.</li>
+        <li>Introducir automatización adicional (alimentación automática, asistencia robótica, etc.).</li>
+      </ul>
+    </section>
+
+    <!-- KPI (IMÁGENES) -->
     <div>
       <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4 text-center">
         Indicadores de desempeño (KPI)
       </h3>
-      <div class="flex justify-center">
+      <div class="flex justify-center mb-10">
         <img src="../images/KPI.jpg" alt="Indicadores KPI" class="w-[600px] rounded-lg shadow-md object-contain">
       </div>
     </div>
@@ -90,22 +388,17 @@ import HeroSection from '../components/HeroSection.astro';
       <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4 text-center">
         Simulaciones en Plan Simulation Nx (KPI)
       </h3>
-      <div class="flex justify-center">
+      <div class="flex justify-center mb-6">
         <img src="../images/Plant1.png" alt="Indicadores KPI" class="w-[600px] rounded-lg shadow-md object-contain">
       </div>
     </div>
 
-    <!-- Simulaciones en Plan Simulation Nx -->
     <div>
-      <div class="flex justify-center">
+      <div class="flex justify-center mb-10">
         <img src="../images/Plant2.png" alt="Indicadores KPI" class="w-[600px] rounded-lg shadow-md object-contain">
       </div>
     </div>
 
-
-
   </main>
   <Footer />
 </Layout>
-
-
