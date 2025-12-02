@@ -13,26 +13,16 @@ import HeroSection from '../components/HeroSection.astro';
     <HeroSection 
       title="Módulo 2: Gestión de Producción" 
       highlightText="Módulo 2:"
+      description="Se presentan los diagramas asociados a la gestión y evaluación de la producción automatizada en una etapa preliminar"
     />
 
-    <!-- ============================= -->
-    <!-- GESTIÓN Y EVALUACIÓN (KPI / Takt) -->
-    <!-- ============================= -->
-    <section id="gestion-produccion" class="max-w-5xl mx-auto px-4 py-16 text-gray-900 dark:text-gray-100">
-      <h2 class="text-3xl font-bold mb-6 border-b border-gray-300 dark:border-gray-700 pb-3">
-        Gestión y evaluación de la producción automatizada
+    {/* SECCIÓN: Imágenes y diagramas individuales */}
+    <section class="py-16 bg-white dark:bg-gray-800">
+      <h2 class="text-3xl font-bold text-center text-gray-900 dark:text-white mb-10">
+        Diagramas y análisis de la celda de manufactura
       </h2>
 
-      <p class="mb-6 text-justify">
-        Los indicadores de desempeño de la celda de manufactura se obtuvieron a partir de un modelo
-        detallado desarrollado en <strong>Tecnomatix Plant Simulation (Siemens)</strong>, considerando
-        jornadas de <strong>8 horas/día</strong> durante <strong>8 días por semana</strong>, es decir,
-        un tiempo disponible de <strong>3&nbsp;840 min/semana</strong>. El objetivo del rediseño es pasar
-        de una producción actual de <strong>40 motoreductores/semana</strong> a una producción futura de
-        <strong>500 motoreductores/semana</strong> mediante la automatización y el balanceo de la línea.
-      </p>
-
-      <!-- Operación del proceso -->
+      {/* Operación del proceso */}
       <div class="mb-10">
         <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4 text-center">
           Operación del proceso
@@ -41,13 +31,8 @@ import HeroSection from '../components/HeroSection.astro';
           <img src="../images/APM_D_PROCESO.png" alt="Operación del proceso" class="w-[700px] rounded-lg shadow-md object-contain" />
         </div>
       </div>
-
-      <!-- ================= Escenario actual (40/sem) ================= -->
-      <h3 class="text-2xl font-semibold text-sky-700 dark:text-sky-300 mt-10 mb-4">
-        Escenario actual (40 motoreductores/semana – baja automatización)
-      </h3>
-
-      <!-- Análisis de proceso -->
+      
+      {/* Análisis de proceso */}
       <div class="mb-10">
         <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4 text-center">
           Análisis de proceso
@@ -56,21 +41,76 @@ import HeroSection from '../components/HeroSection.astro';
           <img src="../images/APM_ANÁLISIS_PROCESO.png" alt="Análisis de proceso 1" class="w-[320px] rounded-lg shadow-md object-contain" />
         </div>
       </div>
+    
+      {/* Layout de la celda */}
+      <div class="mb-10">
+        <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4 text-center">
+          Layout de la celda
+        </h3>
+        <div class="flex flex-wrap justify-center gap-6">
+          <img src="../images/LAYOUT_1.jpg" alt="Layout 1" class="w-[500px] rounded-lg shadow-md object-contain" />
+          <img src="../images/LAYOUT_2.jpg" alt="Layout 2" class="w-[500px] rounded-lg shadow-md object-contain" />
+        </div>
+      </div>
+    
+      {/* Diagrama Spaguetti */}
+      <div class="mb-10">
+        <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4 text-center">
+          Diagrama Spaguetti
+        </h3>
+        <div class="flex flex-wrap justify-center gap-6">
+          <img src="../images/SPAGUETTI_2.jpg" alt="Diagrama Spaguetti 1" class="w-[500px] rounded-lg shadow-md object-contain" />
+          <img src="../images/SPAGUETTI_1.jpg" alt="Diagrama Spaguetti 2" class="w-[500px] rounded-lg shadow-md object-contain" />
+        </div>
+      </div>
+    
+      {/* Mapa de valor */}
+      <div>
+        <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4 text-center">
+          Mapa de flujo de valor (VSM)
+        </h3>
+        <div class="flex justify-center">
+          <img src="../images/VSM_APM.jpeg" alt="Mapa de flujo de valor" class="w-[700px] rounded-lg shadow-md object-contain" />
+        </div>
+      </div>
+    </section>
+
+    {/* ============================= */}
+    {/* GESTIÓN Y EVALUACIÓN (KPI / Takt) */}
+    {/* ============================= */}
+    <section id="gestion-produccion" class="max-w-5xl mx-auto px-4 py-16 text-gray-900 dark:text-gray-100">
+      <h2 class="text-3xl font-bold mb-6 border-b border-gray-300 dark:border-gray-700 pb-3">
+        Gestión y evaluación de la producción automatizada
+      </h2>
+
+      <p class="mb-6 text-justify">
+        Los indicadores de desempeño de la celda de manufactura se obtuvieron a partir de un modelo
+        detallado desarrollado en <strong>Tecnomatix Plant Simulation (Siemens)</strong>, considerando
+        jornadas de <strong>16 horas/día</strong> durante <strong>8 días por semana</strong>, es decir,
+        un tiempo disponible de <strong>7&nbsp;680 min/semana</strong> y <strong>30&nbsp;720 min/mes</strong>.
+        El objetivo del rediseño es pasar de una producción actual de 
+        <strong> 40 motoreductores por semana</strong> (≈160/mes) a una producción futura de
+        <strong> 500 motoreductores al mes</strong> mediante la automatización y el balanceo de la línea.
+      </p>
+
+      {/* ================= Escenario actual (40/sem ≈ 160/mes) ================= */}
+      <h3 class="text-2xl font-semibold text-sky-700 dark:text-sky-300 mt-10 mb-4">
+        Escenario actual (40 motoreductores/semana ≈ 160/mes – baja automatización)
+      </h3>
 
       <p class="mb-4 text-justify">
         En el escenario actual, la celda opera de forma principalmente manual, con movimientos de
         material y operaciones de ensamble poco estandarizados. La demanda semanal es de
-        <strong> 40 motoreductores</strong>, por lo que la línea se encuentra muy por debajo de su
-        capacidad potencial y presenta una utilización reducida.
+        <strong> 40 motoreductores</strong>, que equivalen a <strong>160 unidades/mes</strong>, por lo que
+        la línea se encuentra por debajo de su capacidad potencial y presenta una utilización reducida.
       </p>
-
 
       <div class="overflow-x-auto mb-6">
         <table class="w-full text-sm border border-gray-200 dark:border-gray-700">
           <thead class="bg-gray-100 dark:bg-gray-800">
             <tr>
               <th class="px-3 py-2 text-left">KPI</th>
-              <th class="px-3 py-2 text-left">Valor actual (40/sem)</th>
+              <th class="px-3 py-2 text-left">Valor actual (40/sem ≈ 160/mes)</th>
             </tr>
           </thead>
           <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
@@ -92,7 +132,7 @@ import HeroSection from '../components/HeroSection.astro';
             </tr>
             <tr>
               <td class="px-3 py-2 font-semibold">Productividad de mano de obra</td>
-              <td class="px-3 py-2">10 unidades/trabajador/semana</td>
+              <td class="px-3 py-2">40 unid/trab/mes (≈10 unid/trab/sem)</td>
             </tr>
             <tr>
               <td class="px-3 py-2 font-semibold">MLT (1ª unidad)</td>
@@ -110,74 +150,54 @@ import HeroSection from '../components/HeroSection.astro';
         </table>
       </div>
 
-      <!-- Pregunta 1 -->
+      {/* 1. Productividad mano de obra */}
       <h4 class="text-xl font-semibold text-sky-800 dark:text-sky-200 mt-8 mb-3">
-        1. Productividad de mano de obra actual (unidades/trabajador/semana)
+        1. Productividad de mano de obra actual (unidades/trabajador/mes)
       </h4>
       <p class="mb-3 text-justify">
         La productividad de mano de obra se calculó en Plant Simulation como la relación entre la
-        producción semanal y el número de operarios asignados directamente a la celda (4
-        trabajadores):
+        producción mensual equivalente y el número de operarios asignados directamente a la celda 
+        (4 trabajadores):
       </p>
       <p class="mb-3 font-mono text-sm bg-gray-100 dark:bg-gray-800 px-3 py-2 rounded">
-        Productividad_MO_actual = 40 unidades / 4 trabajadores = 10 unidades/trabajador/semana
+        Productividad_MO_actual = 160 unidades/mes / 4 trabajadores = 40 unidades/trabajador/mes
+      </p>
+      <p class="mb-6 text-justify">
+        En términos semanales esto corresponde a aproximadamente 
+        <strong>10 unidades/trabajador/semana</strong>, lo que evidencia un bajo aprovechamiento de
+        la capacidad instalada en el escenario actual.
       </p>
 
-    <!-- SECCIÓN: Imágenes y diagramas individuales -->
-    
-  
-      <!-- Pregunta 2 -->
+      {/* 2. Takt time actual */}
       <h4 class="text-xl font-semibold text-sky-800 dark:text-sky-200 mt-8 mb-3">
         2. Takt time requerido (escenario actual)
       </h4>
       <p class="mb-3 text-justify">
-        Para 40 motoreductores/semana y 7&nbsp;680 min de tiempo disponible, el Takt time actual
-        obtenido con Plant Simulation es:
+        Para una demanda equivalente de <strong>160 motoreductores/mes</strong> y un tiempo disponible
+        de <strong>30&nbsp;720 min/mes</strong>, el Takt time actual obtenido con Plant Simulation es:
       </p>
       <p class="mb-3 font-mono text-sm bg-gray-100 dark:bg-gray-800 px-3 py-2 rounded">
-        TT_actual = 7&nbsp;680 min/semana / 40 unidades ≈ 192 min/unidad
+        TT_actual = 30&nbsp;720 min/mes / 160 unidades ≈ 192 min/unidad
       </p>
 
-      <!-- Layout de la celda -->
-      <div class="mb-10">
-        <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4 text-center">
-          Layout de la celda
-        </h3>
-        <div class="flex flex-wrap justify-center gap-6">
-          <img src="../images/LAYOUT_1.jpg" alt="Layout 1" class="w-[500px] rounded-lg shadow-md object-contain" />
-          <img src="../images/LAYOUT_2.jpg" alt="Layout 2" class="w-[500px] rounded-lg shadow-md object-contain" />
-        </div>
-      </div>
-
-      <!-- Pregunta 3 -->
+      {/* 3. Utilización actual */}
       <h4 class="text-xl font-semibold text-sky-800 dark:text-sky-200 mt-8 mb-3">
         3. Utilización (%) del sistema bajo la demanda actual
       </h4>
       <p class="mb-3 text-justify">
         Con un tiempo de ciclo manual en la estación crítica de 30 min/unidad, el tiempo efectivo
-        de trabajo para producir 40 unidades es de 1&nbsp;200 min/semana. La utilización de la línea
+        de trabajo para producir 160 unidades/mes es de 4&nbsp;800 min. La utilización de la línea
         es por tanto:
       </p>
       <p class="mb-3 font-mono text-sm bg-gray-100 dark:bg-gray-800 px-3 py-2 rounded">
-        Utilización_actual = (1&nbsp;200 / 7&nbsp;680) × 100 % ≈ 15.6 %
+        Utilización_actual = (4&nbsp;800 / 30&nbsp;720) × 100 % ≈ 15.6 %
       </p>
       <p class="mb-6 text-justify">
         Esto confirma que, con la demanda actual, la celda está fuertemente infrautilizada y existe
         un amplio margen para absorber incrementos de volumen mediante un rediseño automatizado.
       </p>
 
-      <!-- Diagrama Spaguetti -->
-      <div class="mb-10">
-        <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4 text-center">
-          Diagrama Spaguetti
-        </h3>
-        <div class="flex flex-wrap justify-center gap-6">
-          <img src="../images/SPAGUETTI_2.jpg" alt="Diagrama Spaguetti 1" class="w-[500px] rounded-lg shadow-md object-contain" />
-          <img src="../images/SPAGUETTI_1.jpg" alt="Diagrama Spaguetti 2" class="w-[500px] rounded-lg shadow-md object-contain" />
-        </div>
-      </div>
-
-      <!-- Pregunta 5 y 6 (resumen actual) -->
+      {/* 5 y 6 actuales */}
       <h4 class="text-xl font-semibold text-sky-800 dark:text-sky-200 mt-8 mb-3">
         5. MLT y 6. Disponibilidad en el escenario actual
       </h4>
@@ -194,44 +214,32 @@ import HeroSection from '../components/HeroSection.astro';
         tiempos medios entre fallas (MTBF) de 480 min y tiempos medios de reparación (MTTR) de
         45 min:
       </p>
-
-      <!-- Mapa de valor -->
-      <div>
-        <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4 text-center">
-          Mapa de flujo de valor (VSM)
-        </h3>
-        <div class="flex justify-center">
-          <img src="../images/VSM_APM.jpeg" alt="Mapa de flujo de valor" class="w-[700px] rounded-lg shadow-md object-contain" />
-        </div>
-      </div>
-
-      <p class="mb-3 text-justify">
+      <p class="mb-3 font-mono text-sm bg-gray-100 dark:bg-gray-800 px-3 py-2 rounded">
+        A_actual = 480 / (480 + 45) × 100 % ≈ 91.4 %
+      </p>
+      <p class="mb-6 text-justify">
         Estos resultados sirven como punto de referencia para cuantificar la mejora que se consigue
-        con la automatización propuesta.
+        con la automatización propuesta en la siguiente sección.
       </p>
 
-      <!-- Indicadores anteriores -->
-      <div>
-        <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4 text-center">
-          Indicadores Actuales
-        </h3>
-        <div class="flex justify-center">
-          <img src="../images/Antiguo.jpeg" alt="Mapa de flujo de valor" class="w-[700px] rounded-lg shadow-md object-contain" />
-        </div>
+      <div class="border-2 border-dashed border-gray-400 dark:border-gray-500 rounded-lg p-6 my-6 text-center text-sm text-gray-600 dark:text-gray-300 bg-gray-50 dark:bg-gray-900/40">
+        Espacio para la <strong>gráfica de estados y tiempos de permanencia</strong>
+        del escenario actual (Plant Simulation).
       </div>
 
-      <!-- ================= Escenario futuro (500/sem) ================= -->
+      {/* ================= Escenario futuro (500/mes) ================= */}
       <h3 class="text-2xl font-semibold text-sky-700 dark:text-sky-300 mt-12 mb-4">
-        Línea automatizada para 500 motoreductores/semana
+        Línea automatizada para 500 motoreductores/mes
       </h3>
 
-      <p class="mb-3 text-justify">
+      <p class="mb-4 text-justify">
         El rediseño de la celda incorpora <strong>automatización del flujo de materiales</strong>,
         estaciones con mayor grado de <strong>automatización del ensamble</strong> y un
         <strong>balanceo de línea</strong> orientado a la nueva demanda de
-        <strong> 500 motoreductores por semana</strong>. Los indicadores que se muestran a
+        <strong> 500 motoreductores por mes</strong>. Los indicadores que se muestran a
         continuación se obtuvieron mediante experimentos de simulación en
-        <strong> Tecnomatix Plant Simulation (Siemens)</strong>.
+        <strong> Tecnomatix Plant Simulation (Siemens)</strong>. En todos los casos, la automatización
+        mejora los KPI clave: Takt time, productividad, utilización, MLT y disponibilidad.
       </p>
 
       <div class="overflow-x-auto mb-6">
@@ -239,45 +247,45 @@ import HeroSection from '../components/HeroSection.astro';
           <thead class="bg-gray-100 dark:bg-gray-800">
             <tr>
               <th class="px-3 py-2 text-left">KPI</th>
-              <th class="px-3 py-2 text-left">Escenario actual (40/sem)</th>
-              <th class="px-3 py-2 text-left">Línea automatizada (500/sem)</th>
+              <th class="px-3 py-2 text-left">Escenario actual (≈160/mes)</th>
+              <th class="px-3 py-2 text-left">Línea automatizada (500/mes)</th>
             </tr>
           </thead>
           <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
             <tr>
               <td class="px-3 py-2">Takt time (min/unidad)</td>
               <td class="px-3 py-2">192.0</td>
-              <td class="px-3 py-2">15.36</td>
+              <td class="px-3 py-2">61.44</td>
             </tr>
             <tr>
               <td class="px-3 py-2">Tc estación cuello de botella (min/unidad)</td>
               <td class="px-3 py-2">30.0</td>
-              <td class="px-3 py-2">13.5</td>
+              <td class="px-3 py-2">20.0</td>
             </tr>
             <tr>
               <td class="px-3 py-2">Utilización de la línea (%)</td>
               <td class="px-3 py-2">15.6</td>
-              <td class="px-3 py-2">87.9</td>
+              <td class="px-3 py-2">32.6</td>
             </tr>
             <tr>
               <td class="px-3 py-2">Tasa de producción (unidades/hora)</td>
               <td class="px-3 py-2">0.31</td>
-              <td class="px-3 py-2">3.90</td>
+              <td class="px-3 py-2">1.0</td>
             </tr>
             <tr>
-              <td class="px-3 py-2">Productividad MO (unid/trab/sem)</td>
-              <td class="px-3 py-2">10</td>
+              <td class="px-3 py-2">Productividad MO (unid/trab/mes)</td>
+              <td class="px-3 py-2">40</td>
               <td class="px-3 py-2">125</td>
             </tr>
             <tr>
               <td class="px-3 py-2">MLT 1ª unidad (min)</td>
               <td class="px-3 py-2">180</td>
-              <td class="px-3 py-2">81.0</td>
+              <td class="px-3 py-2">120</td>
             </tr>
             <tr>
               <td class="px-3 py-2">MLT lote 50 unidades (min)</td>
               <td class="px-3 py-2">1&nbsp;650</td>
-              <td class="px-3 py-2">742.5</td>
+              <td class="px-3 py-2">1&nbsp;100</td>
             </tr>
             <tr>
               <td class="px-3 py-2">Disponibilidad (%)</td>
@@ -288,41 +296,37 @@ import HeroSection from '../components/HeroSection.astro';
         </table>
       </div>
 
-      <!-- Indicadores anteriores -->
-      <div>
-        <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4 text-center">
-          Indicadores Futuros
-        </h3>
-        <div class="flex justify-center">
-          <img src="../images/Futuro.jpeg" alt="Mapa de flujo de valor" class="w-[700px] rounded-lg shadow-md object-contain" />
-        </div>
+      <div class="border-2 border-dashed border-gray-400 dark:border-gray-500 rounded-lg p-6 my-6 text-center text-sm text-gray-600 dark:text-gray-300 bg-gray-50 dark:bg-gray-900/40">
+        Espacio para la <strong>gráfica comparativa de KPI</strong> (Takt, Tc, Utilización,
+        MLT) antes y después de la automatización (salida de Plant Simulation).
       </div>
 
-      <!-- Pregunta 4 -->
+      {/* 4. Tc máximo futuro */}
       <h4 class="text-xl font-semibold text-sky-800 dark:text-sky-200 mt-8 mb-3">
-        4. Valor máximo del tiempo de ciclo en las estaciones
+        4. Valor máximo del tiempo de ciclo en las estaciones (línea automatizada)
       </h4>
       <p class="mb-3 text-justify">
-        Para el diseño de la línea automatizada, el parámetro crítico es el Takt time asociado a la
-        nueva demanda de 500 motoreductores/semana. En este caso:
+        Para la nueva demanda de <strong>500 motoreductores/mes</strong>, el Takt time calculado en
+        Plant Simulation es:
       </p>
       <p class="mb-3 font-mono text-sm bg-gray-100 dark:bg-gray-800 px-3 py-2 rounded">
-        TT_nuevo = 7&nbsp;680 min/semana / 500 unidades ≈ 15.36 min/unidad
+        TT_nuevo = 30&nbsp;720 min/mes / 500 unidades ≈ 61.44 min/unidad
       </p>
       <p class="mb-3 text-justify">
         Considerando un margen de seguridad del 10&nbsp;% para absorber variabilidad y microparadas,
         el tiempo de ciclo máximo de diseño en cada estación se fijó en:
       </p>
       <p class="mb-6 font-mono text-sm bg-gray-100 dark:bg-gray-800 px-3 py-2 rounded">
-        Tc_máx_diseño = TT_nuevo × (1 − 0.10) ≈ 13.8 min/unidad
+        Tc_máx_diseño = TT_nuevo × (1 − 0.10) ≈ 55.3 min/unidad
       </p>
       <p class="mb-6 text-justify">
-        La estación cuello de botella de la línea automatizada opera con un tiempo de ciclo de
-        <strong> 13.5 min/unidad</strong>, cumpliendo este límite de diseño establecido a partir de
-        la simulación.
+        En la línea automatizada, la estación cuello de botella trabaja con un tiempo de ciclo de
+        <strong> 20 min/unidad</strong>, muy por debajo de este límite de diseño, lo que garantiza
+        holgura suficiente para absorber variaciones de la demanda y pequeñas perturbaciones del
+        proceso.
       </p>
 
-      <!-- Pregunta 5 (futuro) -->
+      {/* 5. MLT futuro */}
       <h4 class="text-xl font-semibold text-sky-800 dark:text-sky-200 mt-8 mb-3">
         5. MLT en la línea automatizada (primer producto y lote de 50 unidades)
       </h4>
@@ -333,19 +337,19 @@ import HeroSection from '../components/HeroSection.astro';
       </p>
       <ul class="list-disc ml-6 mb-3">
         <li>
-          <strong>MLT primera unidad:</strong> 81 min (≈ 1.35 h).
+          <strong>MLT primera unidad:</strong> 120 min (≈ 2 h).
         </li>
         <li>
-          <strong>MLT lote de 50 unidades:</strong> 742.5 min (≈ 12.4 h).
+          <strong>MLT lote de 50 unidades:</strong> 1&nbsp;100 min (≈ 18.3 h).
         </li>
       </ul>
       <p class="mb-6 text-justify">
         Comparado con el escenario original, el MLT del primer producto se reduce de 180 a
-        81 min y el MLT del lote de 50 unidades pasa de 1&nbsp;650 a 742.5 min, lo que evidencia el
-        impacto de la automatización sobre los tiempos de respuesta de la celda.
+        120 min y el MLT del lote de 50 unidades pasa de 1&nbsp;650 a 1&nbsp;100 min, lo que evidencia
+        el impacto de la automatización sobre los tiempos de respuesta de la celda.
       </p>
 
-      <!-- Pregunta 6 (futuro) -->
+      {/* 6. Disponibilidad futura */}
       <h4 class="text-xl font-semibold text-sky-800 dark:text-sky-200 mt-8 mb-3">
         6. Disponibilidad de la línea de producción automatizada
       </h4>
@@ -359,71 +363,71 @@ import HeroSection from '../components/HeroSection.astro';
       </p>
       <p class="mb-6 text-justify">
         Este aumento de disponibilidad, sumado a la reducción del tiempo de ciclo y del MLT,
-        contribuye directamente al incremento del OEE y a la capacidad de la línea para atender la
-        nueva demanda sin comprometer la estabilidad del sistema.
+        contribuye directamente a mejorar el OEE y a la capacidad de la línea para atender la
+        nueva demanda mensual de 500 motoreductores.
       </p>
 
-      <!-- Pregunta 9 -->
+      {/* 9. Nuevo Takt time 500/mes */}
       <h4 class="text-xl font-semibold text-sky-800 dark:text-sky-200 mt-8 mb-3">
-        9. Nuevo Takt time requerido para 500 motoreductores/semana
+        9. Nuevo Takt time requerido para 500 motoreductores/mes
       </h4>
       <p class="mb-3 text-justify">
-        Para la estrategia futura de 500 motoreductores/semana, el nuevo Takt time se calculó en
-        Plant Simulation como:
+        El nuevo <strong>Takt time</strong> se calculó en Plant Simulation como:
       </p>
       <p class="mb-3 font-mono text-sm bg-gray-100 dark:bg-gray-800 px-3 py-2 rounded">
-        TT_nuevo = 7&nbsp;680 min/semana / 500 unidades ≈ 15.36 min/unidad
+        TT_nuevo = 30&nbsp;720 min/mes / 500 unidades ≈ 61.44 min/unidad
       </p>
       <p class="mb-6 text-justify">
         Toda la lógica de automatización y el balanceo de la línea se diseñaron para que el tiempo de
-        ciclo del cuello de botella (13.5 min/unidad) se mantenga por debajo de este nuevo Takt time,
-        garantizando que la producción pueda seguir el ritmo de la demanda.
+        ciclo del cuello de botella (20 min/unidad) se mantenga muy por debajo de este nuevo Takt time,
+        lo que permite cubrir la demanda con margen de capacidad adicional.
       </p>
 
-      <!-- Pregunta 10 -->
+      {/* 10. Aumento de capacidad */}
       <h4 class="text-xl font-semibold text-sky-800 dark:text-sky-200 mt-8 mb-3">
         10. ¿Se requiere aumento de capacidad para cubrir la nueva estrategia?
       </h4>
       <p class="mb-3 text-justify">
         Sin automatización, una línea con tiempos de ciclo altos y baja disponibilidad no podría
-        escalar de 40 a 500 motoreductores/semana sin un incremento significativo de recursos. Sin
-        embargo, el modelo de <strong>Plant Simulation (Siemens)</strong> muestra que, tras el
-        rediseño automatizado:
+        escalar de 40 motoreductores/semana a 500 motoreductores/mes sin un incremento significativo
+        de recursos. Sin embargo, el modelo de <strong>Plant Simulation (Siemens)</strong> muestra que,
+        tras el rediseño automatizado:
       </p>
       <ul class="list-disc ml-6 mb-3">
-        <li>El Takt time objetivo es de 15.36 min/unidad.</li>
-        <li>El tiempo de ciclo del cuello de botella es de 13.5 min/unidad.</li>
-        <li>La utilización de la línea se sitúa en torno al 87.9&nbsp;%.</li>
+        <li>El Takt time objetivo es de 61.44 min/unidad.</li>
+        <li>El tiempo de ciclo del cuello de botella se reduce a 20 min/unidad.</li>
+        <li>La utilización de la línea aumenta hasta aproximadamente el 32.6&nbsp;%.</li>
         <li>La disponibilidad se incrementa hasta 95.2&nbsp;%.</li>
+        <li>La productividad de la mano de obra pasa de 40 a 125 unidades/trabajador/mes.</li>
       </ul>
       <p class="mb-3 text-justify">
         Bajo estas condiciones, <strong>no se requiere añadir estaciones adicionales</strong> para
-        alcanzar los 500 motoreductores/semana: la automatización propuesta (transportadores,
-        estaciones semiautomáticas, lógica de control y balanceo de tareas) es suficiente para cubrir
-        la nueva demanda manteniendo tiempos de ciclo por debajo del Takt time y reduciendo el MLT.
+        alcanzar los 500 motoreductores/mes: el aumento de capacidad se logra principalmente por la
+        vía de la <strong>automatización</strong> y la mejora simultánea de todos los KPI
+        críticos de la celda.
       </p>
       <p class="mb-6 text-justify">
-        En otras palabras, el aumento de capacidad se logra <strong>principalmente por la vía de la
-        automatización</strong> y la mejora de los KPI (Takt time, productividad, utilización,
-        disponibilidad y MLT), y no por la simple adición de más mano de obra.
+        En síntesis, la automatización propuesta permite pasar de una línea infrautilizada a una celda
+        capaz de atender la nueva demanda mensual, con mejores tiempos de respuesta, mayor
+        productividad y una operación más estable, todo validado mediante simulación discreta en
+        <strong> Siemens Tecnomatix Plant Simulation</strong>.
       </p>
     </section>
 
-
-      <!-- Layout Nuevo -->
+    {/* KPI (IMÁGENES) */}
     <div>
       <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4 text-center">
-        Layout Nuevo
+        Indicadores de desempeño (KPI)
       </h3>
-      <div class="flex justify-center mb-6">
-        <img src="../images/Nuevolayout.png" alt="Indicadores KPI" class="w-[600px] rounded-lg shadow-md object-contain" />
+      <div class="flex justify-center mb-10">
+        <img src="../images/KPI.jpg" alt="Indicadores KPI" class="w-[600px] rounded-lg shadow-md object-contain" />
       </div>
     </div>
 
-    <!-- Layout Antiguo -->
+    {/* Simulaciones en Plant Simulation Nx */}
     <div>
       <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4 text-center">
-        Layout Antiguo
+        Simulaciones en Plant Simulation Nx (KPI)
       </h3>
       <div class="flex justify-center mb-6">
         <img src="../images/Plant1.png" alt="Indicadores KPI" class="w-[600px] rounded-lg shadow-md object-contain" />
