@@ -1,144 +1,207 @@
 ---
-import { useState } from 'preact/hooks';
-import Flashcard from './Flashcard.astro';
-import './InteractivePyramid.css';
+// InteractivePyramid.astro
 
-// Definiendo los niveles de la pirámide
-const pyramidLevels = [
-  {
-    id: 1,
-    title: "Business Planning and Logistics",
-    description: "La herramienta a usar es el ERP (Enterprise Resource Planning). Este nivel se encarga de la planificación estratégica, gestión de recursos empresariales, finanzas, cadena de suministro y logística a nivel corporativo.",
-    area: "top"
-  },
-  {
-    id: 2,
-    title: "Manufacturing Operations Management",
-    description: "Sistemas MES (Manufacturing Execution System). Este nivel gestiona las operaciones de producción, programación, ejecución, seguimiento y documentación de los procesos de fabricación.",
-    area: "upper-middle"
-  },
-  {
-    id: 3,
-    title: "Monitoring & Supervision",
-    description: "Aquí es donde se encuentran los sistemas SCADA (System Control And Data Acquisition) y HMI (Human Machine Interface). Este nivel supervisa y controla los procesos en tiempo real, proporcionando interfaces para operadores.",
-    area: "middle"
-  },
-  {
-    id: 4,
-    title: "Sensing & Manipulation",
-    description: "Donde los Controladores Industriales (PLCs y PACs) manejan las máquinas. Este nivel incluye la automatización de procesos específicos, control de dispositivos y adquisición de datos de sensores.",
-    area: "lower-middle"
-  },
-  {
-    id: 5,
-    title: "Production Process",
-    description: "También llamado nivel de planta o Floor level. Este nivel incluye las máquinas, sensores, actuadores y dispositivos físicos que realizan el trabajo de producción real.",
-    area: "bottom"
-  }
-];
+interface PyramidLevel {
+  id: number;
+  name: string;
+  description: string;
+  color: string;
+  examples: string[];
+}
+---
 
-// flashcards que se pueden clickear
-const clickableAreas = [
-  { id: 1, coords: "50,10,150,60", shape: "rect", levelId: 1 },
-  { id: 2, coords: "75,60,125,110", shape: "rect", levelId: 2 },
-  { id: 3, coords: "100,110,150,160", shape: "rect", levelId: 3 },
-  { id: 4, coords: "125,160,175,210", shape: "rect", levelId: 4 },
-  { id: 5, coords: "150,210,200,260", shape: "rect", levelId: 5 }
-];
-
-export default function InteractivePyramid(){
-
-	const [activeFlashcard, setActiveFlashcard] = useState(null);
-
-	const openFlashcard = (levelId) => {
-	  setActiveFlashcard(levelId);
-	};
-
-	const closeFlashcard = () => {
-	  setActiveFlashcard(null);
-	};
-
-// obtener el texto de cada flashcard
-const activeLevel = pyramidLevels.find(level => level.id === activeFlashcard);
-return (
-<div class="Pyramid">
-  <div class="pyramid-container">
-    <!-- Imagen con las flashcards -->
-    <div class="pyramid-image-wrapper">
-      <img 
-        src="../images/PiramideISA95.png" 
-        alt="Pirámide de la Automatización de Acuerdo a la norma ISA-95" 
-        class="pyramid-image"
-        use:map
+<div 
+  x-data="pyramidData()" 
+  x-init="init()"
+  class="pyramid-container"
+  client:load
+>
+  <!-- Pyramid Image with Clickable Areas -->
+  <div class="relative w-full max-w-4xl mx-auto">
+    <!-- SVG Pyramid with clickable levels -->
+    <svg 
+      viewBox="0 0 800 600" 
+      class="w-full h-auto cursor-pointer"
+      @click="handlePyramidClick($event)"
+    >
+      <!-- Level 5 - Business Planning & Logistics -->
+      <polygon
+        id="level5"
+        points="400,50 600,150 200,150"
+        class="fill-blue-300 hover:fill-blue-400 stroke-2 stroke-blue-600 transition-colors duration-200"
+        :class="{ 'fill-blue-500': activeLevel === 5 }"
+        data-level="5"
       />
-      
-      <!-- superposición de las flashcards con la imagen -->
-      <div class="clickable-areas">
-        {clickableAreas.map(area => (
-          <button
-            class={`clickable-area ${area.shape}`}
-            style={`
-              left: ${area.coords.split(',')[0]}px;
-              top: ${area.coords.split(',')[1]}px;
-              width: ${parseInt(area.coords.split(',')[2]) - parseInt(area.coords.split(',')[0])}px;
-              height: ${parseInt(area.coords.split(',')[3]) - parseInt(area.coords.split(',')[1])}px;
-            `}
-            onClick={() => openFlashcard(area.levelId)}
-            aria-label={`Learn about ${pyramidLevels.find(l => l.id === area.levelId)?.title}`}
-          />
-        ))}
+      <text x="400" y="100" text-anchor="middle" class="text-lg font-bold fill-blue-900 pointer-events-none">
+        Level 5
+      </text>
+      <text x="400" y="125" text-anchor="middle" class="text-sm fill-blue-900 pointer-events-none">
+        Enterprise
+      </text>
+
+      <!-- Level 4 - Business Planning & Logistics -->
+      <polygon
+        id="level4"
+        points="200,150 600,150 550,250 250,250"
+        class="fill-green-300 hover:fill-green-400 stroke-2 stroke-green-600 transition-colors duration-200"
+        :class="{ 'fill-green-500': activeLevel === 4 }"
+        data-level="4"
+      />
+      <text x="400" y="200" text-anchor="middle" class="text-lg font-bold fill-green-900 pointer-events-none">
+        Level 4
+      </text>
+      <text x="400" y="225" text-anchor="middle" class="text-sm fill-green-900 pointer-events-none">
+        Business Planning
+      </text>
+
+      <!-- Level 3 - Manufacturing Operations -->
+      <polygon
+        id="level3"
+        points="250,250 550,250 500,350 300,350"
+        class="fill-yellow-300 hover:fill-yellow-400 stroke-2 stroke-yellow-600 transition-colors duration-200"
+        :class="{ 'fill-yellow-500': activeLevel === 3 }"
+        data-level="3"
+      />
+      <text x="400" y="300" text-anchor="middle" class="text-lg font-bold fill-yellow-900 pointer-events-none">
+        Level 3
+      </text>
+      <text x="400" y="325" text-anchor="middle" class="text-sm fill-yellow-900 pointer-events-none">
+        Manufacturing Operations
+      </text>
+
+      <!-- Level 2 - Supervisory Control -->
+      <polygon
+        id="level2"
+        points="300,350 500,350 450,450 350,450"
+        class="fill-orange-300 hover:fill-orange-400 stroke-2 stroke-orange-600 transition-colors duration-200"
+        :class="{ 'fill-orange-500': activeLevel === 2 }"
+        data-level="2"
+      />
+      <text x="400" y="400" text-anchor="middle" class="text-lg font-bold fill-orange-900 pointer-events-none">
+        Level 2
+      </text>
+      <text x="400" y="425" text-anchor="middle" class="text-sm fill-orange-900 pointer-events-none">
+        Supervisory Control
+      </text>
+
+      <!-- Level 1 - Field/Control -->
+      <polygon
+        id="level1"
+        points="350,450 450,450 400,550"
+        class="fill-red-300 hover:fill-red-400 stroke-2 stroke-red-600 transition-colors duration-200"
+        :class="{ 'fill-red-500': activeLevel === 1 }"
+        data-level="1"
+      />
+      <text x="400" y="500" text-anchor="middle" class="text-lg font-bold fill-red-900 pointer-events-none">
+        Level 1
+      </text>
+      <text x="400" y="525" text-anchor="middle" class="text-sm fill-red-900 pointer-events-none">
+        Field/Control
+      </text>
+
+      <!-- Level 0 - Process -->
+      <polygon
+        id="level0"
+        points="400,550 450,450 350,450"
+        class="fill-purple-300 hover:fill-purple-400 stroke-2 stroke-purple-600 transition-colors duration-200"
+        :class="{ 'fill-purple-500': activeLevel === 0 }"
+        data-level="0"
+      />
+      <text x="400" y="575" text-anchor="middle" class="text-lg font-bold fill-purple-900 pointer-events-none">
+        Level 0
+      </text>
+      <text x="400" y="600" text-anchor="middle" class="text-sm fill-purple-900 pointer-events-none">
+        Process
+      </text>
+    </svg>
+  </div>
+
+  <!-- Flashcards Container -->
+  <div 
+    x-show="activeLevel !== null"
+    x-transition:enter="transition ease-out duration-300"
+    x-transition:enter-start="opacity-0 transform scale-95"
+    x-transition:enter-end="opacity-100 transform scale-100"
+    x-transition:leave="transition ease-in duration-200"
+    x-transition:leave-start="opacity-100 transform scale-100"
+    x-transition:leave-end="opacity-0 transform scale-95"
+    class="mt-8 max-w-2xl mx-auto"
+  >
+    <div class="bg-white rounded-xl shadow-2xl p-6 border-2" :class="getLevelColor(activeLevel)">
+      <div class="flex justify-between items-start mb-4">
+        <div>
+          <h3 class="text-2xl font-bold" x-text="getLevelName(activeLevel)"></h3>
+          <p class="text-gray-600" x-text="getLevelDescription(activeLevel)"></p>
+        </div>
+        <button 
+          @click="activeLevel = null"
+          class="text-gray-500 hover:text-gray-700 text-2xl"
+          aria-label="Close flashcard"
+        >
+          &times;
+        </button>
+      </div>
+
+      <div class="mb-6">
+        <h4 class="font-semibold text-lg mb-2">Examples:</h4>
+        <ul class="list-disc pl-5 space-y-1">
+          <template x-for="example in getLevelExamples(activeLevel)" :key="example">
+            <li x-text="example"></li>
+          </template>
+        </ul>
+      </div>
+
+      <div class="flex justify-between pt-4 border-t">
+        <button
+          @click="previousLevel()"
+          :disabled="activeLevel <= 0"
+          class="px-4 py-2 bg-gray-200 hover:bg-gray-300 rounded-lg disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+          :class="{ 'hidden': activeLevel <= 0 }"
+        >
+          ← Previous Level
+        </button>
+        
+        <div class="flex space-x-2">
+          <template x-for="level in [0,1,2,3,4,5]" :key="level">
+            <button
+              @click="activeLevel = level"
+              class="w-8 h-8 rounded-full border-2"
+              :class="[
+                activeLevel === level ? 'scale-125 border-white ring-2 ring-offset-2' : '',
+                getLevelColor(level).replace('border-', 'bg-')
+              ]"
+              :aria-label="`Go to level ${level}`"
+              x-text="level"
+            ></button>
+          </template>
+        </div>
+
+        <button
+          @click="nextLevel()"
+          :disabled="activeLevel >= 5"
+          class="px-4 py-2 bg-gray-200 hover:bg-gray-300 rounded-lg disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+          :class="{ 'hidden': activeLevel >= 5 }"
+        >
+          Next Level →
+        </button>
       </div>
     </div>
-    
-    <!-- etiquetas de los niveles para referencia -->
-    <div class="pyramid-labels">
-      {pyramidLevels.map((level, index) => (
-        <div class="pyramid-label" key={level.id}>
-          <span class="label-number">{level.id}.</span>
-          <span class="label-text">{level.title}</span>
-          <button 
-            class="label-button"
-            onClick={() => openFlashcard(level.id)}
-          >
-            Más info
-          </button>
-        </div>
-      ))}
-    </div>
   </div>
-  
-  <!-- Flashcard component -->
-  {activeLevel && (
-    <Flashcard 
-      title={activeLevel.title}
-      description={activeLevel.description}
-      isVisible={true}
-      onClose={closeFlashcard}
-    />
-  )}
-</div>
-);
-}
 
-<script>
-  // interactividad con javascript
-  if (typeof window !== 'undefined') {
-    // efecto cuando el mouse pase por las áreas
-    document.addEventListener('DOMContentLoaded', () => {
-      const areas = document.querySelectorAll('.clickable-area');
-      
-      areas.forEach(area => {
-        area.addEventListener('mouseenter', (e) => {
-          e.target.style.backgroundColor = 'rgba(59, 130, 246, 0.15)';
-          e.target.style.borderColor = 'rgba(59, 130, 246, 0.7)';
-        });
-        
-        area.addEventListener('mouseleave', (e) => {
-          e.target.style.backgroundColor = 'transparent';
-          e.target.style.borderColor = 'rgba(59, 130, 246, 0)';
-        });
-      });
-    });
-  }
-</script>
----
+  <!-- Level Selection Buttons (for mobile/alternative navigation) -->
+  <div class="mt-6 flex flex-wrap justify-center gap-2">
+    <template x-for="level in levels" :key="level.id">
+      <button
+        @click="activeLevel = level.id"
+        class="px-4 py-2 rounded-lg font-medium transition-all transform hover:scale-105 active:scale-95"
+        :class="[
+          activeLevel === level.id 
+            ? 'text-white shadow-lg scale-105' 
+            : 'text-gray-800 hover:shadow',
+          level.color.replace('fill-', 'bg-')
+        ]"
+        x-text="`Level ${level.id}: ${level.name}`"
+      ></button>
+    </template>
+  </div>
+</div>

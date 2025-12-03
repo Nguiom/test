@@ -3,6 +3,9 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import HeroSection from '../components/HeroSection.astro';
+import Pyramid from '../components/Pyramid.astro';
+import '../styles/components/Pyramid.css';
+import '../scripts/main.js';
 ---
 
 <Layout title="Los4Automaticos - Módulo 1: Automatización e Industria 4.0" description="Explora el Módulo 1 de Los4Automaticos, donde presentamos diagramas de instrumentación de algunos procesos, identificando sensores y actuadores clave, así como la arquitectura de control y sus comunicaciones. Integrando tecnologías de Industria 4.0 como el gemelo digital y el IIoT a tráves del uso de contenedores en la Nube de software SCADA.">
@@ -36,7 +39,7 @@ import HeroSection from '../components/HeroSection.astro';
             </p>
           </div>
           <div class="rounded-lg overflow-hidden shadow-xl border border-gray-200 dark:border-gray-700">
-				  <img src="../images/PiramideISA95.png" alt="Pirámide de la Automatización de Acuerdo a la norma ISA-95" class="w-full h-auto" />
+				<InteractivePyramid />
           </div>
         </div>
       </div>

@@ -1,0 +1,95 @@
+/* Component-specific styles for the Interactive Pyramid */
+
+.pyramid-container {
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+/* Flashcard animations */
+.pyramid-flashcard-enter {
+  animation: pyramidFlashcardEnter 0.3s ease-out;
+}
+
+.pyramid-flashcard-leave {
+  animation: pyramidFlashcardLeave 0.2s ease-in;
+}
+
+@keyframes pyramidFlashcardEnter {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes pyramidFlashcardLeave {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+}
+
+/* Pyramid polygon hover effects */
+.pyramid-container polygon {
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pyramid-container polygon:hover {
+  filter: brightness(0.95);
+  stroke-width: 3px;
+}
+
+/* Special pyramid-specific text styles */
+.pyramid-level-title {
+  font-weight: 700;
+  font-size: 1.25rem;
+  letter-spacing: -0.025em;
+}
+
+.pyramid-level-subtitle {
+  font-size: 0.875rem;
+  opacity: 0.9;
+}
+
+/* Pyramid-specific responsive adjustments */
+@media (max-width: 768px) {
+  .pyramid-container {
+    padding: 1rem;
+  }
+  
+  .pyramid-container svg {
+    max-height: 400px;
+  }
+  
+  .pyramid-navigation-buttons {
+    gap: 0.5rem;
+  }
+  
+  .pyramid-level-button {
+    font-size: 0.875rem;
+    padding: 0.5rem 0.75rem;
+  }
+}
+
+/* Print styles for pyramid */
+@media print {
+  .pyramid-container polygon {
+    stroke-width: 1px !important;
+  }
+  
+  .pyramid-flashcard {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  
+  .pyramid-level-button {
+    display: none;
+  }
+}
