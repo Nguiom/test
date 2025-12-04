@@ -1,3 +1,4 @@
+
 /* /src/styles/InteractivePyramid.css */
 .interactive-pyramid {
   position: relative;
@@ -39,6 +40,9 @@
   height: 100%;
 }
 
+.polygon, text {
+  transition: fill 0.3s ease, stroke 0.3s ease;
+}
 .clickable-area {
   position: absolute;
   background: transparent;

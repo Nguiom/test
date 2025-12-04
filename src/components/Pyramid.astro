@@ -1,12 +1,14 @@
 ---
-// InteractivePyramid.astro
+//InteractivePyramid.astro
+
+import { Alpine } from 'alpinejs';
 
 interface PyramidLevel {
   id: number;
   name: string;
   description: string;
   color: string;
-  examples: string[];
+  relevance: string[];
 }
 ---
 
@@ -19,101 +21,88 @@ interface PyramidLevel {
   <!-- Pyramid Image with Clickable Areas -->
   <div class="relative w-full max-w-4xl mx-auto">
     <!-- SVG Pyramid with clickable levels -->
-    <svg 
-      viewBox="0 0 800 600" 
-      class="w-full h-auto cursor-pointer"
-      @click="handlePyramidClick($event)"
+<!-- 
+  ISA-95 Automation Pyramid SVG Component
+  This creates a clickable, interactive pyramid with 6 levels
+-->
+
+<div class="pyramid-wrapper">
+  
+  <svg 
+    viewBox="0 0 800 700" 
+    class="w-full h-auto max-w-4xl mx-auto block"
+    preserveAspectRatio="xMidYMid meet"
+    
+    @click="handlePyramidClick($event)">
+    
+    <polygon
+      id="level4"
+      points="350,200 450,200 400,100"
+      class="fill-blue-300 hover:fill-blue-400 stroke-2 stroke-blue-600 transition-all duration-200"
+      :class="{ 'fill-blue-500': activeLevel === 4 }"
+      data-level="4"
+    />
+    <text 
+      x="400" 
+      y="140" 
+      text-anchor="middle"
+      class="text-base font-bold fill-blue-900 pointer-events-none"
     >
-      <!-- Level 5 - Business Planning & Logistics -->
-      <polygon
-        id="level5"
-        points="400,50 600,150 200,150"
-        class="fill-blue-300 hover:fill-blue-400 stroke-2 stroke-blue-600 transition-colors duration-200"
-        :class="{ 'fill-blue-500': activeLevel === 5 }"
-        data-level="5"
-      />
-      <text x="400" y="100" text-anchor="middle" class="text-lg font-bold fill-blue-900 pointer-events-none">
-        Level 5
-      </text>
-      <text x="400" y="125" text-anchor="middle" class="text-sm fill-blue-900 pointer-events-none">
-        Enterprise
-      </text>
+      Level 4: Business Planning
+    </text>
+    
+    <!-- Level 4: Business Planning & Logistics (TOp) -->
+    <polygon
+      id="level3"
+      points="300,300 500,300 450,200 350,200"
+      class="fill-green-300 hover:fill-green-400 stroke-2 stroke-green-600 transition-all duration-200"
+      :class="{ 'fill-green-500': activeLevel === 3 }"
+      data-level="3"
+    />
+    <text x="400" y="250" text-anchor="middle" class="text-base font-bold fill-green-900 pointer-events-none">
+      Level 3: Mfg Operations
+    </text>
+    
+    <!-- Level 3: Manufacturing Operations -->
+    <polygon
+      id="level2"
+      points="250,400 550,400 500,300 300,300"
+      class="fill-yellow-300 hover:fill-yellow-400 stroke-2 stroke-yellow-600 transition-all duration-200"
+      :class="{ 'fill-yellow-500': activeLevel === 2 }"
+      data-level="2"
+    />
+    <text x="400" y="350" text-anchor="middle" class="text-base font-bold fill-yellow-900 pointer-events-none">
+      Level 2: Supervisory Control
+    </text>
+    
+    <!-- Level 2: Supervisory Control -->
+    <polygon
+      id="level1"
+      points="250,400 550,400 600,500 200,500"
+      class="fill-orange-300 hover:fill-orange-400 stroke-2 stroke-orange-600 transition-all duration-200"
+      :class="{ 'fill-orange-500': activeLevel === 1 }"
+      data-level="1"
+    />
+    <text x="400" y="450" text-anchor="middle" class="text-base font-bold fill-orange-900 pointer-events-none">
+      Level 1: Control
+    </text>
+    
+    <!-- Level 1: Control Systems -->
+    <polygon
+      id="level0"
+      points="200,500 600,500 650,600 150,600"
+      class="fill-red-300 hover:fill-red-400 stroke-2 stroke-red-600 transition-all duration-200"
+      :class="{ 'fill-red-500': activeLevel === 0 }"
+      data-level="0"
+    />
+    <text x="400" y="550" text-anchor="middle" class="text-base font-bold fill-red-900 pointer-events-none">
+      Level 0: Process
+    </text>
+    
+    <!-- Level 0: Process (Base) -->
+  </svg>
+</div>
 
-      <!-- Level 4 - Business Planning & Logistics -->
-      <polygon
-        id="level4"
-        points="200,150 600,150 550,250 250,250"
-        class="fill-green-300 hover:fill-green-400 stroke-2 stroke-green-600 transition-colors duration-200"
-        :class="{ 'fill-green-500': activeLevel === 4 }"
-        data-level="4"
-      />
-      <text x="400" y="200" text-anchor="middle" class="text-lg font-bold fill-green-900 pointer-events-none">
-        Level 4
-      </text>
-      <text x="400" y="225" text-anchor="middle" class="text-sm fill-green-900 pointer-events-none">
-        Business Planning
-      </text>
-
-      <!-- Level 3 - Manufacturing Operations -->
-      <polygon
-        id="level3"
-        points="250,250 550,250 500,350 300,350"
-        class="fill-yellow-300 hover:fill-yellow-400 stroke-2 stroke-yellow-600 transition-colors duration-200"
-        :class="{ 'fill-yellow-500': activeLevel === 3 }"
-        data-level="3"
-      />
-      <text x="400" y="300" text-anchor="middle" class="text-lg font-bold fill-yellow-900 pointer-events-none">
-        Level 3
-      </text>
-      <text x="400" y="325" text-anchor="middle" class="text-sm fill-yellow-900 pointer-events-none">
-        Manufacturing Operations
-      </text>
-
-      <!-- Level 2 - Supervisory Control -->
-      <polygon
-        id="level2"
-        points="300,350 500,350 450,450 350,450"
-        class="fill-orange-300 hover:fill-orange-400 stroke-2 stroke-orange-600 transition-colors duration-200"
-        :class="{ 'fill-orange-500': activeLevel === 2 }"
-        data-level="2"
-      />
-      <text x="400" y="400" text-anchor="middle" class="text-lg font-bold fill-orange-900 pointer-events-none">
-        Level 2
-      </text>
-      <text x="400" y="425" text-anchor="middle" class="text-sm fill-orange-900 pointer-events-none">
-        Supervisory Control
-      </text>
-
-      <!-- Level 1 - Field/Control -->
-      <polygon
-        id="level1"
-        points="350,450 450,450 400,550"
-        class="fill-red-300 hover:fill-red-400 stroke-2 stroke-red-600 transition-colors duration-200"
-        :class="{ 'fill-red-500': activeLevel === 1 }"
-        data-level="1"
-      />
-      <text x="400" y="500" text-anchor="middle" class="text-lg font-bold fill-red-900 pointer-events-none">
-        Level 1
-      </text>
-      <text x="400" y="525" text-anchor="middle" class="text-sm fill-red-900 pointer-events-none">
-        Field/Control
-      </text>
-
-      <!-- Level 0 - Process -->
-      <polygon
-        id="level0"
-        points="400,550 450,450 350,450"
-        class="fill-purple-300 hover:fill-purple-400 stroke-2 stroke-purple-600 transition-colors duration-200"
-        :class="{ 'fill-purple-500': activeLevel === 0 }"
-        data-level="0"
-      />
-      <text x="400" y="575" text-anchor="middle" class="text-lg font-bold fill-purple-900 pointer-events-none">
-        Level 0
-      </text>
-      <text x="400" y="600" text-anchor="middle" class="text-sm fill-purple-900 pointer-events-none">
-        Process
-      </text>
-    </svg>
   </div>
 
   <!-- Flashcards Container -->
@@ -127,7 +116,7 @@ interface PyramidLevel {
     x-transition:leave-end="opacity-0 transform scale-95"
     class="mt-8 max-w-2xl mx-auto"
   >
-    <div class="bg-white rounded-xl shadow-2xl p-6 border-2" :class="getLevelColor(activeLevel)">
+    <div class="bg-white rounded-xl shadow-2xl p-5 border-2" :class="getLevelColor(activeLevel)">
       <div class="flex justify-between items-start mb-4">
         <div>
           <h3 class="text-2xl font-bold" x-text="getLevelName(activeLevel)"></h3>
@@ -143,9 +132,9 @@ interface PyramidLevel {
       </div>
 
       <div class="mb-6">
-        <h4 class="font-semibold text-lg mb-2">Examples:</h4>
+        <h4 class="font-semibold text-lg mb-2"> Elementos:</h4>
         <ul class="list-disc pl-5 space-y-1">
-          <template x-for="example in getLevelExamples(activeLevel)" :key="example">
+          <template x-for="example in getLevelrelevance(activeLevel)" :key="example">
             <li x-text="example"></li>
           </template>
         </ul>
@@ -162,7 +151,7 @@ interface PyramidLevel {
         </button>
         
         <div class="flex space-x-2">
-          <template x-for="level in [0,1,2,3,4,5]" :key="level">
+          <template x-for="level in [0,1,2,3,4]" :key="level">
             <button
               @click="activeLevel = level"
               class="w-8 h-8 rounded-full border-2"
@@ -178,9 +167,9 @@ interface PyramidLevel {
 
         <button
           @click="nextLevel()"
-          :disabled="activeLevel >= 5"
+          :disabled="activeLevel >= 4"
           class="px-4 py-2 bg-gray-200 hover:bg-gray-300 rounded-lg disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
-          :class="{ 'hidden': activeLevel >= 5 }"
+          :class="{ 'hidden': activeLevel >= 4 }"
         >
           Next Level →
         </button>
@@ -205,3 +194,146 @@ interface PyramidLevel {
     </template>
   </div>
 </div>
+
+<script>
+document.addEventListener('alpine:init', () => {
+  Alpine.data('pyramidData', () => ({
+    // Initial state
+    activeLevel: null,
+    levels: [
+      {
+        id: 0,
+        name: 'Production Process',
+        description: 'También llamado nivel de planta o floor level. Aquí están algunas de las máquinas más importantes dentro de nuestra propuesta',
+        color: 'border-purple-500',
+        relevance: [
+				'Robot ABB IRB660 con una carga de trabajo de mínimo 130kg con su respectivo controlador ABB IRC5',
+				'Sensores infrarrojos E3Z-LTY81-D-M1J de la marca OMROM, los cuales permiten la detección de piezas de gran variabilidad de tamaños gracias a su buen rango de lectura.',
+				'También habrán cortinas de seguridad 1220‑A‑220NB a la entrada de la celda robótcia y una jaula alrededor de la misma a la cual sólo se podrá entrar con una tarjeta de autorización, esto permite que sólo entre el personal de mantenimiento en casos donde sea necesario y evita riesgos y accidentes que pueden ser muy costosos',
+        ]
+      },
+      {
+        id: 1,
+		name: 'Field Control',
+		description: 'Donde los Controladores Industriales (PLCs y PACs) manejan las máquinas',
+        color: 'border-red-500',
+        relevance: [
+				'Utilizamos una arquietectura de control de tipo jerárquica y estática, donde todos los sensores y casi todos los actuadores son controlados por un sólo PLC. Algunas máquinas tendrán sus controladores propios debido a su arquitectura o necesidades como el control de movimiento de alto desempeño. Estos controladores recibirán órdenes',
+				'Comunicaciones mediante protocolo OPC, donde el PLC principal publicará los tag necesarios en el servidor para que estos sean consumidos por los otros controladores. Por supuesto, para garantizar el máximo tiempo de operación se tendrá mínimo un servidor de redundancia en caso de que el servidor principal llegue a fallar.',
+				'Para los niveles de Planta y Control y manipulación se hace necesario tener un PLC capaz de utilizar rutinas de alto desempeño al mismo tiempo que tenga capacidad de ser programado con rutinas de seguridad. Para ello utilizaremos PLCs de seguridad de Allen-Bradley Compact GuardLogix 5380, programados a través del software Studio 5000.',
+				'Ádemas de los módulos básicos de alimentación y comunicaciones por Ethernet/IP como el 5069-L350ERMS2, también vamos a necesitar módulos de entradas Digitales 5069-IB8S y módulo de salidas Digitales 5069-OBV8S. Esto es porque queremos que nuestra propuesta de automatización tenga una arquietectura de control completamente segura, no sólo en la lógica de la misma, sino también en las entradas y salidas de la arquitectura de control de la celda.',
+				'En el caso de las entradas y salidas analógicas, el compact guardlogix no posee dichos módulos y tampoco se utilizan entradas ni salidas de tipo analógico dentro de esta propuesta, así que sencillamente no se van a tener en cuenta por el momento.',
+        ]
+      },
+      {
+        id: 2,
+        name: 'Monitoring and Supervision',
+		description: 'Aquí es donde se encuentran los sistemas SCADA (System Control And Data Acquisition) y HMI(Humasn Machine Interface)',
+        color: 'border-orange-500',
+        relevance: [
+				'Conectaremos la planta con un servidor de SCADA (Supervisory Control And Data Acquisition) gracias al software Ignition de Inductive Automation',
+				'Además del servidor local, tendremos un contenedor en la nube gracias a los servicios de la plataforma Microsoft Azure. Así cualquier persona, desde cualquier parte del mundo podrá conectarse al servidor, provisto tengan un usuario y contraseña dentro del servidor SCADA.',
+          'La comunicación entre el servidor ignition local y el contenedor en la nube se hará mediante el protocolo MQTT',
+				'El software Ignition también nos permite crear un HMI que se puede utilizar para facilitar la labor de supervisión, propia de los sistemas SCADA, El cual podrá realizar acciones de control básicas y tendrá acceso a datos históricos y a Alarmas',
+				'Además para la realización de pruebas y simulaciones sin necesidad de alterar la planta se contará con un gemelo digital de la celda en el software de simulaciónSiemens NX',
+				'Este gemelo digital también podrá ser controlado mediante el HMI y un emulador de PLC, gracias  de nuevo, al protocol MQTT.',
+        ]
+      },
+      {
+        id: 3,
+        name: 'Manufacturing Operations Management',
+		description: 'Sistemas MES (Manufacturing Execution Systrem)',
+        color: 'border-yellow-500',
+        relevance: [
+          'Aquí tendremos un software MES (Manufacturing Execution Systems)',
+				'La propuesta es realizarlo mediante el software de Power BI de microsoft, ya que tiene una excelente acoplamiento con los servicios en la nube de microsoft azure',
+        ]
+      },
+      {
+        id: 4,
+        name: 'Business Planning & Logistics',
+		description: 'La herramienta a usar es el ERP (Enterprise Resource Planning)',
+        color: 'border-green-500',
+        relevance: [
+          'ERP (Enterprise Resource Planning)',
+		  'No existe de momento una propuesta sólida del mismo',
+        ]
+      },
+    ],
+
+    // Initialize component
+    init() {
+      console.log('Pyramid component initialized');
+    },
+
+    // Handle global keyboard events
+    handleGlobalKeydown(e) {
+      if (this.activeLevel === null) return;
+      
+      switch(e.key) {
+        case 'ArrowRight':
+        case 'ArrowDown':
+          if (this.activeLevel < 4) {
+            e.preventDefault();
+            this.nextLevel();
+          }
+          break;
+        case 'ArrowLeft':
+        case 'ArrowUp':
+          if (this.activeLevel > 0) {
+            e.preventDefault();
+            this.previousLevel();
+          }
+          break;
+        case 'Escape':
+          e.preventDefault();
+          this.activeLevel = null;
+          break;
+      }
+    },
+
+    // Handle pyramid click
+    handlePyramidClick(event) {
+      const target = event.target;
+      if (target.dataset.level) {
+        const level = parseInt(target.dataset.level);
+        this.activeLevel = level;
+      }
+    },
+
+    // Get level information
+    getLevelName(levelId) {
+      const level = this.levels.find(l => l.id === levelId);
+      return level ? `Level ${levelId}: ${level.name}` : '';
+    },
+
+    getLevelDescription(levelId) {
+      const level = this.levels.find(l => l.id === levelId);
+      return level ? level.description : '';
+    },
+
+    getLevelrelevance(levelId) {
+      const level = this.levels.find(l => l.id === levelId);
+      return level ? level.relevance : [];
+    },
+
+    getLevelColor(levelId) {
+      const level = this.levels.find(l => l.id === levelId);
+      return level ? level.color : 'border-gray-300';
+    },
+
+    // Navigation methods
+    nextLevel() {
+      if (this.activeLevel < 4) {
+        this.activeLevel++;
+      }
+    },
+
+    previousLevel() {
+      if (this.activeLevel > 0) {
+        this.activeLevel--;
+      }
+    }
+  }));
+});
+</script>
