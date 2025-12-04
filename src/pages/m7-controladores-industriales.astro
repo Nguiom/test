@@ -12,7 +12,7 @@ import HeroSection from '../components/HeroSection.astro';
   <main>
     <HeroSection 
       title="Módulo 2: Gestión de Producción" 
-      highlightText="Módulo 2:"
+      highlightText="Módulo 7:"
       description="Este modulo consta del diseño de la logica en grafcet la cual se exporta a ladder para su programación en un plc, en este caso virtual, de Siemens"
     />
 
@@ -31,8 +31,7 @@ import HeroSection from '../components/HeroSection.astro';
               verifica que no exista material al final de ella, posteriormente existe una desactivación de la banda a través de la llegada 
               del material al final de la banda o por un boton de parada esta etapa es conectada a la transición relacionada con el botón 
               de arranque y el sensor al final de la banda.
-        
-              </p>
+          </p>
           <p>Por otro lado, existe una selección de secuencia para las rutinas basada en la posición del robot (debe estar en home), la no pulsación 
               de su correspondiente boton de parada ni de los botones de la rutina a escoger y de la pulsación del botón de arranque correspondiente
               a cada rutina, bajo estas condiciones asociadas a las respectiva transiciones, se procede a activar un banda de ingreso de las piezas
@@ -40,7 +39,6 @@ import HeroSection from '../components/HeroSection.astro';
               terminada la rutina de movimiento se acciona una bnada que llevas las piezas a su respectiva mesa de ensamblaje madiante otra banda
               transportadora, una vez el material se encuentre a final de dicha banda se desactiva la misma y se lleva el robot a una posición de home.
               Esto proceso, de manera cíclica.
-        
               Finalmente existe un botón de parada de emergencia que desactiva cualquier movimiento de los actuadores descritos anteriormente.
             </p>
       </div>
@@ -69,9 +67,11 @@ import HeroSection from '../components/HeroSection.astro';
         <h3 class="text-2xl font-semibold text-gray-900 dark:text-white mb-4 text-center">
           Logica ladder
         </h3>
+        <div class="max-w-4xl mx-auto mb-10 px-4 text-gray-700 dark:text-gray-300">
         <p>
           A continuación se muestra como quedo la logica montada en studio 5000.
         </p>
+        </div>
         <div class="flex justify-center">
           <img src="https://i.imgur.com/N9Y15s8.png" alt="GRAFCET_TECNOLOGICO" class="w-[85%] mx-auto rounded-lg shadow-md object-contain">
         </div>
